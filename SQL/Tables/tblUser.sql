@@ -4,6 +4,7 @@
     usrLastName varchar(25),
     usrFirstName varchar(75),
     usrDOB DATE,
+    usrAge int,
     PRIMARY KEY(usrEmail)
 
 );
