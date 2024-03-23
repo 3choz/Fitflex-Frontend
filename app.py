@@ -7,3 +7,5 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+    #testing commit for github - Shaun Hardtke
