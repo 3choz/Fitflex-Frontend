@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+    <div>
+      <img alt="Woman Stretching" src="../assets/girl-stretching.png">
+    </div>
+    
     Landing Page
 
   </div>

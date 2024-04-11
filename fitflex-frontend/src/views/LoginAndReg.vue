@@ -1,4 +1,7 @@
 <template>
+    <div>
+        <img alt="Man Lifting" src="../assets/man-lifting.png">
+    </div>
     <div class="loginandreg">
         Login Or Register
     </div>
