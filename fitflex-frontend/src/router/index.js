@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from '../views/LandingPage.vue'
 import Statistics from '../views/Statistics.vue'
 import Programs from '../views/Programs.vue'
-import LoginAndReg from '../views/Login.vue'
+import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import ForgotUserNamePassword from "../views/ForgotUserNamePassword.vue";
 
 
 const routes = [
@@ -33,13 +34,18 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: LoginAndReg
+    component: Login
   },
   {
     path: '/register',
     name: 'register',
     component: Register
   },
+  {
+    path: '/forgot',
+    name: 'forgot',
+    component: ForgotUserNamePassword
+  }
 ]
 
 const router = createRouter({

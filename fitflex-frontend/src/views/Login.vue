@@ -11,21 +11,19 @@
       
       <div>
         <label for="remember">Remember me</label>
-      <input type="checkbox" id="remember" name="remember">
+        <input type="checkbox" id="remember" name="remember">
       </div>
 
-      <p>I forgot my Username or Password</p>
+      <router-link to="/forgot">I Forgot Username or Password</router-link>
       <button class="button-link">Log In</button>
     </div>
   </div>
 </template>
   
 <script>
+import router from '@/router';
+
   export default {
     name: 'Login'
   }
 </script>
-
-<style>
-
-</style>

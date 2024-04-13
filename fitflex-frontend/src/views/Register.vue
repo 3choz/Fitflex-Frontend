@@ -26,6 +26,10 @@
             <input type="text" placeholder="Password">
             <input type="text" placeholder="Confirm Password">
 
+            <div>
+                <input type="checkbox" id="captcha">
+                <label for="captcha">Pretend I am a CAPTCHA</label>
+            </div>
             <button class="button-link">Sign Up</button>
         </div>
     </div>
