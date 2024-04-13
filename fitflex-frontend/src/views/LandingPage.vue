@@ -8,12 +8,16 @@
     <div class="landing-header">
       <div>
         <p>We Bring The Tools you need to succeed.</p>
-        <button>Join Us</button>
+        <router-link to="/register" class="button-link">
+          Join Us
+        </router-link>
       </div>
 
       <div>
         <p>Already have an account?</p>
-        <button>Login</button>
+        <router-link to="/login" class="button-link">
+          Login
+        </router-link>
       </div>
     </div>
     
@@ -66,21 +70,6 @@ export default {
   font-size: 30px;
   font-weight: bold;
   color: black;
-}
-
-.landing-header div button{
-  cursor: pointer;
-  background-color: #fcff5f;
-  border: black;
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 20px;
-}
-
-.landing-header div button:hover{
-  background-color: #a1a309b0;
 }
 
 .boxy{
