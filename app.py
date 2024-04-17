@@ -3,8 +3,6 @@ import os
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
-from Password import Password
-
 app = Flask(__name__)
 
 @app.route('/')
