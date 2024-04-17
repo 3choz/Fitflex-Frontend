@@ -1,9 +1,8 @@
 # Class that defines the Password object. Object will match values of the table: tblPassword
-"""
+
 import hashlib
 import string
 import random
-
 
 from DBConnect import DBAction,DBQuery
 
@@ -13,18 +12,21 @@ class Password:
     def login(self, email, password):
 
         # Get password hash and salt
-        hashSalt = DBQuery("exec spGetPasswordHash @email ='" + email + "'")
-        output = (hashSalt[0])[2:len(hashSalt[0])-2]
-        output = output.split("', '")
-        temphash = output[0]
-        tempsalt = output[1]
+        hashSalt = DBQuery("exec spGetPasswordHash @email ='jokerr@jokes.com'")
+        if(len(hashSalt[0])>3):
+            output = (hashSalt[0])[2:len(hashSalt[0])-2]
+            output = output.split("', '")
+            temphash = output[0]
+            tempsalt = output[1]
 
-        # Generate password
-        generatedPassword = hashlib.sha256((password+tempsalt).encode("utf-8")).hexdigest()
+            # Generate password
+            generatedPassword = hashlib.sha256((password+tempsalt).encode("utf-8")).hexdigest()
 
-        #Compare passwords
-        if temphash == generatedPassword:
-            return True
+            #Compare passwords
+            if temphash == generatedPassword:
+                return True
+            return False
+        print("error")
         return False
 
     #create password. This is only called during user creation.
@@ -39,7 +41,6 @@ class Password:
         print(passhash.hexdigest())
         DBAction("EXEC spPasswordInsert @Salt='"+ salt +"', @Hash='"+ passhash.hexdigest() + "'")
         
-
     # Update Password. Password reset.
     def update(self, currentPassword, newPassword):
         print("tbd")
@@ -47,4 +48,3 @@ class Password:
     # delete password. This is only called during user deletion.
     def delete(self, userEmail):
         print("delete")
-        """

@@ -44,7 +44,7 @@ def DBQuery(SQLStatement):
             if (currentAttempt > maxAttempts):
                     return "Failed"
             conn = obdc.connect(connection_string)
-            
+
             # Connect to DB and excute statement
             cursor = conn.cursor()
             cursor.execute(SQLStatement)
@@ -53,7 +53,6 @@ def DBQuery(SQLStatement):
             rows = []
             for x in cursor:
                 rows.append(str(x))
-            
             return rows
         except:
             print('Failed Attempt')
