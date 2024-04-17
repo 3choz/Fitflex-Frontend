@@ -1,15 +1,13 @@
+# Class that defines the Password object. Object will match values of the table: tblPassword
+"""
 import hashlib
 import string
 import random
-# Class that defines the Password object. Object will match values of the table: tblPassword
+
 
 from DBConnect import DBAction,DBQuery
 
 class Password:
-
-    # Contructor
-    def __init__(self):
-        ''
 
     # Returns True or False
     def login(self, email, password):
@@ -49,3 +47,4 @@ class Password:
     # delete password. This is only called during user deletion.
     def delete(self, userEmail):
         print("delete")
+        """
