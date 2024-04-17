@@ -1,6 +1,6 @@
 # Class that defines the exercise object. Object will match values of the table: tblExercise
 
-from .DBConnect import DBAction,DBQuery
+from DBConnect import DBAction,DBQuery
 
 class Exercise:
 

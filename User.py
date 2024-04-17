@@ -1,6 +1,6 @@
 # Class that defines the Password object. Object will match values of the table: tblUser
 
-from .DBConnect import DBAction,DBQuery
+from DBConnect import DBAction,DBQuery
 
 class User:
 

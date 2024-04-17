@@ -1,6 +1,6 @@
 # Class that defines the UserWeight object. Object will match values of the table: tblUserWeight
 
-from .DBConnect import DBAction,DBQuery
+from DBConnect import DBAction,DBQuery
 
 class UserWeight:
 
