@@ -24,11 +24,6 @@ def hello():
 
    if name:
        print('Request for hello page received with name=%s' % name)
-
-       tempPass = Password()
-       login = tempPass.login("jokerr@jokes.com","jokes")
-       print(login)
-
        return render_template('hello.html', name = name)
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
