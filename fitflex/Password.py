@@ -4,7 +4,7 @@ import hashlib
 import string
 import random
 
-from DBConnect import DBAction,DBQuery
+from fitflex.DBConnect import DBAction,DBQuery
 
 class Password:
 
@@ -13,21 +13,23 @@ class Password:
 
         # Get password hash and salt
         hashSalt = DBQuery("exec spGetPasswordHash @email ='"+email+"'")
-        if(len(hashSalt[0])>3):
-            output = (hashSalt[0])[2:len(hashSalt[0])-2]
-            output = output.split("', '")
-            temphash = output[0]
-            tempsalt = output[1]
+        try:
+            if(len(hashSalt[0])>3):
+                output = (hashSalt[0])[2:len(hashSalt[0])-2]
+                output = output.split("', '")
+                temphash = output[0]
+                tempsalt = output[1]
 
-            # Generate password
-            generatedPassword = hashlib.sha256((password+tempsalt).encode("utf-8")).hexdigest()
+                # Generate password
+                generatedPassword = hashlib.sha256((password+tempsalt).encode("utf-8")).hexdigest()
 
-            #Compare passwords
-            if temphash == generatedPassword:
-                return True
+                #Compare passwords
+                if temphash == generatedPassword:
+                    return True
+                return False
+            print("error")
+        except:
             return False
-        print("error")
-        return False
 
     #create password. This is only called during user creation.
     def create(self, password):

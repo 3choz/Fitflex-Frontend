@@ -1,39 +1,4 @@
-import os
-
-from flask import (Flask, redirect, render_template, request,
-                   send_from_directory, url_for)
-from Password import Password
-from User import User
-app = Flask(__name__)
-current_user = None
-
-@app.route('/')
-
-
-
-def index():
-   print('Request for index page received')
-   return render_template('index.html')
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-@app.route('/hello', methods=['POST'])
-def hello():
-   formEmail = request.form.get('email')
-   formPassword = request.form.get('password')
-   if formEmail:
-       attempt = Password()
-       if attempt.login(formEmail,formPassword) == True:
-           status = "True"
-       else:
-           status = "False"
-       return render_template('hello.html', status = status)
-   else:
-       print('Request for hello page received with no name or blank name -- redirecting')
-       return redirect(url_for('index'))
+from fitflex import app
 
 if __name__ == '__main__':
    app.run()
