@@ -4,6 +4,8 @@ from DBConnect import DBAction,DBQuery
 
 class User:
 
+    def __init__(self):
+        pass
     # Contructor
     def __init__(self, userEmail, passID, prgmID, userFirstName, userLastName, userDOB, userPhone, userSex):
         self.userEmail = userEmail

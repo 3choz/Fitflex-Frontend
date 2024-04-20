@@ -3,9 +3,13 @@ import os
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 from Password import Password
+from User import User
 app = Flask(__name__)
+current_user = None
 
 @app.route('/')
+
+
 
 def index():
    print('Request for index page received')

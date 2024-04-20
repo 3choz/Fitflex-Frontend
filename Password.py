@@ -12,7 +12,7 @@ class Password:
     def login(self, email, password):
 
         # Get password hash and salt
-        hashSalt = DBQuery("exec spGetPasswordHash @email ='jokerr@jokes.com'")
+        hashSalt = DBQuery("exec spGetPasswordHash @email ='"+email+"'")
         if(len(hashSalt[0])>3):
             output = (hashSalt[0])[2:len(hashSalt[0])-2]
             output = output.split("', '")
