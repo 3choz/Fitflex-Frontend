@@ -1,0 +1,22 @@
+#curr-program{
+    border: 1px solid black;
+    width: 300px;
+    margin-top: 10px;
+    background-color: greenyellow;
+}
+
+#edit-curr-program{
+    border: 1px solid black;
+    width: 300px;
+    
+}
+
+#statistics{
+
+}
+
+#feedback{
+    border: 1px solid black;
+    width: 300px;
+    background-color: pink;
+}

@@ -1,14 +1,24 @@
 <template>
-    <div class="Statistics">
+    <div id="statistics" class="statistics">
       <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-        Statistics
+
+        <FeedBack />
+        <CurrentProgress />
     </div>
   </template>
   
+
+  
   <script>
-  
-  export default {
-    name: 'LandingPage',
+// @ is an alias to /src
+import FeedBack from '@/components/Feedback.vue'
+import CurrentProgress from '@/components/CurrentProgress.vue'
+
+export default {
+  name: 'Statistics',
+  components: {
+    FeedBack,
+    CurrentProgress, 
   }
-  </script>
-  
+}
+</script>

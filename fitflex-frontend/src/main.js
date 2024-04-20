@@ -1,4 +1,6 @@
 import "./assets/styles.css"
+import "./assets/footer.css"
+import "./assets/statistics.css"
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
