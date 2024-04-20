@@ -5,6 +5,7 @@ import Programs from '../views/Programs.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import ForgotUserNamePassword from "../views/ForgotUserNamePassword.vue";
+import Profile from '../views/Profile.vue'
 
 
 const routes = [
@@ -45,7 +46,13 @@ const routes = [
     path: '/forgot',
     name: 'forgot',
     component: ForgotUserNamePassword
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
   }
+
 ]
 
 const router = createRouter({
