@@ -1,7 +1,6 @@
 <template>
     <div id="statistics" class="statistics">
       <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-        Statistics
 
         <FeedBack />
         <CurrentProgress />
