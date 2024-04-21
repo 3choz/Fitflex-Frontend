@@ -11,6 +11,7 @@
 
 <script>
 import axios from "axios";
+import { testApiEndpoint } from "@/ApiUtils.js";
 
 export default {
     data() {
@@ -18,17 +19,17 @@ export default {
             item: {}
         }
     },
-    mounted(){
-    axios.get("http://localhost:5000/api/test")
-        .then(response => {
-            this.item = response.data;
-            console.log(this.item);
-            console.log(this.item.message);
-            console.log(this.item.connected_to_backend);
-        })
-        .catch(error => {
-            console.error("Error fetching items:", error);
-        });
-}
+    mounted() {
+        axios.get(testApiEndpoint())
+            .then(response => {
+                this.item = response.data;
+                console.log(this.item);
+                console.log(this.item.message);
+                console.log(this.item.connected_to_backend);
+            })
+            .catch(error => {
+                console.error("Error fetching items:", error);
+            });
+    }
 }
 </script>

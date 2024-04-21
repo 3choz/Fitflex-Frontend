@@ -21,3 +21,20 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Compiled files
+dist/
+build/
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# Optional npm cache directory
+.npm
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

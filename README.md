@@ -1,5 +1,8 @@
 # fitflex-frontend
 
+## Webpage
+fitflex-web.azurewebsites.net
+
 ## Project setup
 ```
 npm install
