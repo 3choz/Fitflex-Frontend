@@ -1,11 +1,13 @@
 import os
 
-from flask import (Flask, redirect, render_template, request,
+from flask import (Flask, jsonify, redirect, render_template, request,
                    send_from_directory, url_for)
+from flask_cors import CORS
 
 from fitflex.Password import Password
 
 app = Flask(__name__, template_folder= os.path.abspath("./templates"), static_folder=os.path.abspath("./static"))
+CORS(app) #Enable CORS for all routes
 #os.chdir("..")
 #template_dir = os.path.abspath()
 print("directory: " + os.getcwd())
@@ -35,4 +37,10 @@ def hello():
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))
+
+# Use for testing the connection between the frontend and the backend   
+@app.route('/api/test', methods=['GET'])
+def test_connection():
+    serialized_items = {"message": "Hello", "connected_to_backend": True}
+    return jsonify(serialized_items) # Send as a JSON so the frontend can consume it
 
