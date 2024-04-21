@@ -10,6 +10,9 @@ on:
       - Jared.Single_App_Deployment
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_NAME: cmsc495-capstone-web-server
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,6 +25,17 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install and build Vue.js project
+        run: |
+          cd fitflex-frontend
+          npm install
+          npm run build
+
       - name: Create and start virtual environment
         run: |
           python -m venv venv
@@ -29,17 +43,6 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install Vue dependencies and build app
-        run: |
-          cd fitflex-frontend
-          npm install
-          npm run build
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -51,8 +54,10 @@ jobs:
         with:
           name: fitflex-app
           path: |
+            .
             release.zip
             !venv/
+            !fitflex-frontend/node_modules/
 
   deploy:
     runs-on: ubuntu-latest
@@ -66,15 +71,30 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: fitflex-app
+          path: .
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      # - name: Unzip artifact for deployment
+      #   run: unzip release.zip
+
+      - name: Log into Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_SERVICE_PRINCIPAL }}
+
+      - name: Configure deployment and runtime settings on the webapp
+        run: |
+          az configure --defaults ${{ env.AZURE_WEBAPP_NAME }}
+          az webapp config appsettings set --name ${{ env.AZURE_WEBAPP_NAME }} --settings \
+            SCM_DO_BUILD_DURING_DEPLOYMENT=true \
+            FLASK_ENV=production
+
+          az webapp config set --name ${{ env.AZURE_WEBAPP_NAME }} --startup-file "gunicorn --bind=0.0.0.0 --timeout 600 fitflex:app"
 
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'cmsc495-capstone-web-server'
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_10B0248C10D341FFAA3F24C13F63E9DD }}
