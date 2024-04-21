@@ -29,6 +29,17 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Vue dependencies and build app
+        run: |
+          cd fitflex-frontend
+          npm install
+          npm run build
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -38,7 +49,7 @@ jobs:
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
-          name: python-app
+          name: fitflex-app
           path: |
             release.zip
             !venv/
@@ -54,7 +65,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: python-app
+          name: fitflex-app
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
