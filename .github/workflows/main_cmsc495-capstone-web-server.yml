@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - cmsc495-capstone-web-server
 on:
   push:
     branches:
-      - main
+      - Jared.Single_App_Deployment
   workflow_dispatch:
 
 jobs:
