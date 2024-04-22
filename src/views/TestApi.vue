@@ -2,34 +2,26 @@
     <div>
         <h1>Test API</h1>
         <br>
-        <h2>Connected to the backend: {{ item.connected_to_backend }}</h2>
+        <h2 v-if="item">Connected to the backend: {{ item.getConnectedToBackend() }}</h2>
         <br>
-        <h2>Message from backend</h2>
-        <p>{{ item.message }}</p>
+        <h2 v-if="item">Message from backend</h2>
+        <p v-if="item">{{ item.getMessage() }}</p>
     </div>
 </template>
 
 <script>
-import axios from "axios";
 import { testApiEndpoint } from "@/ApiUtils.js";
+import { TestApiModel } from "@/models/TestApiModel";
 
 export default {
     data() {
         return {
-            item: {}
+            item: null,
         }
     },
-    mounted() {
-        axios.get(testApiEndpoint())
-            .then(response => {
-                this.item = response.data;
-                console.log(this.item);
-                console.log(this.item.message);
-                console.log(this.item.connected_to_backend);
-            })
-            .catch(error => {
-                console.error("Error fetching items:", error);
-            });
+    async mounted() {
+        this.item = await testApiEndpoint();
+        console.log("API complete", this.item);
     }
 }
 </script>
