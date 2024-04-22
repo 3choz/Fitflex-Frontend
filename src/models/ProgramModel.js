@@ -1,6 +1,7 @@
 export class ProgramModel {
     /**
      * ID of the program
+     * @primaryKey
      * @apiName prgmID
      * @type {number}
      */
@@ -60,4 +61,9 @@ export class ProgramModel {
      * @returns {string} The difficulty of the program
      */
     getProgramDifficulty = () => this.#programDifficulty;
+
+    /**
+     * @returns {string} A string representation of the ProgramModel object
+     */
+    toString = () => `ProgramModel: { programId: ${this.#programId}, programName: ${this.#programName}, programDescription: ${this.#programDescription}, programDifficulty: ${this.#programDifficulty} }`;
 }

@@ -1,9 +1,9 @@
 <template>
     <div :key="testApiModel">
         <h1>Test API</h1>
-        <br>
         <p v-if="testApiModel">Connected to the backend: {{ testApiModel.getConnectedToBackend() }}</p>
         <p v-if="testApiModel">Message from backend: {{ testApiModel.getMessage() }}</p>
+        <p v-if="testApiModel">To String JSON: {{ testApiModel.toString() }}</p>
     </div>
     <br>
     <div :key="programs">
@@ -14,6 +14,7 @@
             <p>Id: {{ program.getProgramId() }}</p>
             <p>Description: {{ program.getProgramDescription() }}</p>
             <p>Difficulty: {{ program.getProgramDifficulty() }}</p>
+            <p>To String JSON: {{ program.toString() }}</p>
         </div>
     </div>
 </template>

@@ -27,4 +27,9 @@ export class TestApiModel {
      * @returns {boolean} Whether the frontend is connected to the backend
      */
     getConnectedToBackend = () => this.#connectedToBackend;
+
+    /**
+     * @returns {string} A string representation of the TestApiModel object
+     */
+    toString = () => `TestApiModel: { message: ${this.#message}, connectedToBackend: ${this.#connectedToBackend} }`;
 }

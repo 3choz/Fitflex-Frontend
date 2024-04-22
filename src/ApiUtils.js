@@ -17,6 +17,25 @@ export const testApiEndpoint = function() {
 }
 
 /**
+ * Create a new user
+ * @param {UserModel} userModel The user to create
+ * @param {string} password The user's password
+ * @returns {Promise<boolean>} A promise that resolves to true if the user was created successfully
+ */
+export const createUser = function(userModel, password){
+  return axios.post(`${API_BASE}/CreateUser`, {
+    userEmail: userModel.getEmail(),
+    userPassword: password,
+    userFirstName: userModel.getFirstName(),
+    userLastName: userModel.getLastName(),
+    userDOB: userModel.getDateOfBirth(),
+    userPhone: userModel.getPhoneNumber(),
+    userSex: userModel.getSex()
+  }).then(response => {console.log(response)})
+  .catch(error => {console.error("Error creating user: ", error)});
+}
+
+/**
  * Get the programs from the getPrograms endpoint
  * @returns {Promise<ProgramModel[]>} A promise that resolves to an array of Program objects
  
