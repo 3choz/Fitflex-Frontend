@@ -1,8 +1,8 @@
 <template>
   <div class="user-auth-page-container">
-    <div>
-      <img alt="Man Lifting" src="../assets/man-lifting.png">
-    </div>
+    <div class="signup-image login-image">
+            <!-- <img alt="Man Lifting" src="../assets/man-lifting.png"> -->
+      </div>
     
     <div class="login user-auth-input-box">
       <h2>Login</h2>
@@ -13,9 +13,9 @@
         <label for="remember">Remember me</label>
         <input type="checkbox" id="remember" name="remember">
       </div>
-
-      <router-link to="/forgot">I Forgot Username or Password</router-link>
+     
       <button class="button-link">Log In</button>
+      <p><router-link to="/forgot">I Forgot Username or Password</router-link></p>
     </div>
   </div>
 </template>
