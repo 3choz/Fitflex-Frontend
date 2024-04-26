@@ -31,20 +31,19 @@
   </section>
 
   <section class="boxy-area">
-    <strong>We provide the following.</strong>
+    <h2>We provide the following:</h2>
     <div class="boxy-containe">
       <div class="boxy light-red">
-        <p>We provide free pre-approved workouts with different difficulty levels.</p> &nbsp; &nbsp;  &nbsp;  <span><img
+        <p>Free pre-approved workouts with different difficulty levels.</p> &nbsp; &nbsp;  &nbsp;  <span><img
             src="../assets/icon1.png" class="small-icon1" alt=""></span>
       </div>
 
       <div class="boxy light-orange">
-        <p>  <span><img src="../assets/icon2.png" class="small-icon2" alt=""></span> &nbsp; &nbsp;  &nbsp;We provide your progress to see how
-          far you went.</p>
+        <p>  <span><img src="../assets/icon2.png" class="small-icon2" alt=""></span> &nbsp; &nbsp;  &nbsp; Weight tracking to see your progress.</p>
       </div>
 
       <div class="boxy light-yellow">
-        <p>We give the user opportunity to give feedback to help improve your experience.  &nbsp; &nbsp;  &nbsp;<span><img
+        <p>Opportunity to provide feedback to help improve your experience.  &nbsp; &nbsp;  &nbsp;<span><img
               src="../assets/icon3.png" class="small-icon3" alt=""></span> </p>
       </div>
 
