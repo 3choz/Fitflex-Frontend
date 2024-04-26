@@ -22,3 +22,11 @@ export default {
   }
 }
 </script>
+
+<style>
+#statistics{
+  display: inline-block;
+  text-align: center;
+  margin: 50px;
+}
+</style>

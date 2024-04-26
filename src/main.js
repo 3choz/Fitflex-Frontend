@@ -1,6 +1,7 @@
 import "./assets/styles.css"
 import "./assets/footer.css"
 import "./assets/profile.css"
+import "./assets/programSignup.css"
 import "./assets/statistics.css"
 import { createApp } from 'vue'
 import App from './App.vue'

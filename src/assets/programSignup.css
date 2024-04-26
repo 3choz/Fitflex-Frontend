@@ -1,0 +1,29 @@
+.prog-signup-box{
+    border: 1px solid black;
+    margin: 3px;
+    display: inline-block;
+    text-align: center;
+    width: 60%;
+    margin-top: 80px;
+    padding: 15px;
+}
+
+#weightWidget{
+    margin-top: 40px;
+    width: 80%;
+}
+
+#exerciseLevel{
+    width: 60%;
+}
+
+.prog-signup-box button {
+  width: 30%;
+  padding: 10px;
+}
+
+
+.prog-signup-box input[type="text"]{
+    padding: 10px;
+    margin: 5px;
+}
