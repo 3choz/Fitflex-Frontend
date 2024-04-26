@@ -1,4 +1,20 @@
-#footer{
-    margin-top: 32px;
-    border-top: 1px solid black;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#app {
+  margin-bottom: 60px;
+  /* Additional styles for content */
+}
+
+#footer {
+  background-color: white;
+  border-top: 1px solid black;
+  padding: 20px;
+  margin-top: 32px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

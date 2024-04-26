@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import ForgotUserNamePassword from "../views/ForgotUserNamePassword.vue";
 import Profile from '../views/Profile.vue'
+import ProgramSignup from '../views/ProgramSignup.vue'
 import TestApi from '@/views/TestApi.vue'
 
 
@@ -57,7 +58,14 @@ const routes = [
     path: "/testapi",
     name: "testapi",
     component: TestApi
+  },
+  {
+    path: "/programsignup",
+    name: "programsignup",
+    component: ProgramSignup
   }
+
+  
 
 ]
 

@@ -2,8 +2,8 @@
   * Get the icons from the mockup and add them to their sections
   * Adjust the styling of the text boxes to match the mockup
  -->
- <template>
-  <div class="home">
+<template>
+  <section class="hero">
 
     <div class="landing-header">
       <div>
@@ -19,8 +19,18 @@
           Login
         </router-link>
       </div>
+
+      <div>
+        <p></p>
+        <!-- Will only be visible in the logged in state -->
+        <router-link to="/programsignup" class="button-link">
+          Start Your Journey
+        </router-link>
+      </div>
     </div>
-    
+  </section>
+
+  <section>
     <strong>We provide the following.</strong>
 
     <div class="boxy light-red">
@@ -39,8 +49,12 @@
       <p>We help track your goals and give way to what you've done.</p>
     </div>
 
-  </div>
+  </section>
+  <br><br><br> <br><br>
 </template>
+
+
+
 
 <script>
 // @ is an alias to /src
@@ -50,29 +64,28 @@ import FooterBelow from '@/components/FooterBelow.vue'
 export default {
   name: 'LandingPage',
   components: {
-    NavBar, 
+    NavBar,
     FooterBelow
   }
 }
 </script>
 
 <style>
-.landing-header{
-  height: 500px;
-  width: 1360px;
-  text-align: right;
+.landing-header {
   background-image: url("../assets/girl-stretching.png");
   background-size: cover;
-  background-position: center center;
+  padding: 100px 30px;
+  text-align: right;
+  clear: both;
 }
 
-.landing-header div p{
+.landing-header div p {
   font-size: 30px;
   font-weight: bold;
   color: black;
 }
 
-.boxy{
+.boxy {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,19 +94,19 @@ export default {
   margin: 10px;
 }
 
-.light-red{
+.light-red {
   background-color: #feb9b9;
 }
 
-.light-orange{
+.light-orange {
   background-color: #ffca8b;
 }
 
-.light-yellow{
+.light-yellow {
   background-color: #ffe193;
 }
 
-.light-green{
+.light-green {
   background-color: #eeff86;
 }
 </style>
