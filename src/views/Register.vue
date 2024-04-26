@@ -1,7 +1,7 @@
 <template>
     <div class="user-auth-page-container">
-        <div>
-            <img alt="Man Lifting" src="../assets/man-lifting.png">
+        <div class="signup-image">
+            <!-- <img alt="Man Lifting" src="../assets/man-lifting.png"> -->
         </div>
         <div class="register user-auth-input-box">
             <h2>Sign Up Here</h2>
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label for="sex">Sex</label>
-                    <select v-model="sex" placeholder="Sex">
+                    <select v-model="sex" placeholder="Sex" name="sex">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
@@ -54,6 +54,7 @@
             </form>
         </div>
     </div>
+    <br><br><br><br>
 </template>
 
 <script>
@@ -119,3 +120,4 @@ export default {
     }
 }
 </script>
+
