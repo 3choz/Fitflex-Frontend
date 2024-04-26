@@ -1,6 +1,6 @@
 <template>
     <div class="programs">
-      Programs
+      <h1> User Program will be displayed Here</h1>
     </div>
   </template>
   

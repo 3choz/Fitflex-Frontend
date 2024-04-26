@@ -30,25 +30,29 @@
     </div>
   </section>
 
-  <section>
+  <section class="boxy-area">
     <strong>We provide the following.</strong>
+    <div class="boxy-containe">
+      <div class="boxy light-red">
+        <p>We provide free pre-approved workouts with different difficulty levels.</p> <span><img
+            src="../assets/icon1.png" class="small-icon1" alt=""></span>
+      </div>
 
-    <div class="boxy light-red">
-      <p>We provide free pre-approved workouts with different difficulty levels.</p>
+      <div class="boxy light-orange">
+        <p> <span><img src="../assets/icon2.png" class="small-icon2" alt=""></span> We provide your progress to see how
+          far you went.</p>
+      </div>
+
+      <div class="boxy light-yellow">
+        <p>We give the user opportunity to give feedback to help improve your experience. <span><img
+              src="../assets/icon3.png" class="small-icon3" alt=""></span> </p>
+      </div>
+
+      <div class="boxy light-green">
+        <p> <span><img src="../assets/icon4.png" class="small-icon4" alt=""></span> We help track your goals and give
+          way to what you've done.</p>
+      </div>
     </div>
-
-    <div class="boxy light-orange">
-      <p>We provide your progress to see how far you went.</p>
-    </div>
-
-    <div class="boxy light-yellow">
-      <p>We give the user opportunity to give feedback to help improve your experience.</p>
-    </div>
-
-    <div class="boxy light-green">
-      <p>We help track your goals and give way to what you've done.</p>
-    </div>
-
   </section>
   <br><br><br> <br><br>
 </template>
@@ -90,23 +94,52 @@ export default {
   justify-content: center;
   align-items: center;
   height: 50px;
-  width: 50%;
+  width: 60%;
   margin: 10px;
+  border-radius: 10px;
+}
+
+.boxy-area{
+  margin-top: 20px;
 }
 
 .light-red {
   background-color: #feb9b9;
+  margin-right: 8%;
 }
 
 .light-orange {
   background-color: #ffca8b;
+  margin-left: 8%;
 }
 
 .light-yellow {
   background-color: #ffe193;
+  margin-right: 8%;
 }
 
 .light-green {
   background-color: #eeff86;
+  margin-left: 8%;
+}
+
+.small-icon1 {
+  height: 42px;
+  width: 58px;
+}
+
+.small-icon2 {
+  height: 26px;
+  width: 31px;
+}
+
+.small-icon3 {
+  height: 42px;
+  width: 58px;
+}
+
+.small-icon4 {
+  height: 42px;
+  width: 58px;
 }
 </style>

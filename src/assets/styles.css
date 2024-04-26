@@ -1,3 +1,10 @@
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 /* Register */
 .user-auth-page-container {
   display: flex;
@@ -20,6 +27,7 @@
 .register h2,
 .login h2 {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .register label {
@@ -41,7 +49,9 @@
 
 .button-link {
   cursor: pointer;
+  text-decoration: none;
   background-color: #fcff5f;
+  border-radius: 10px;
   border: black;
   color: black;
   padding: 10px 20px;
