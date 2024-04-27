@@ -77,6 +77,7 @@
 
 <script>
 export default {
+    name: 'VideoView',
     data() {
         return {
             showNotification: false

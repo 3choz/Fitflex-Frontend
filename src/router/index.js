@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from '../views/LandingPage.vue'
 import Statistics from '../views/Statistics.vue'
 import Programs from '../views/Programs.vue'
+import VideoView from '../views/VideoView.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import ForgotUserNamePassword from "../views/ForgotUserNamePassword.vue";
@@ -63,9 +64,12 @@ const routes = [
     path: "/programsignup",
     name: "programsignup",
     component: ProgramSignup
+  },
+  {
+    path: "/video",
+    name: "video",
+    component: VideoView
   }
-
-  
 
 ]
 
