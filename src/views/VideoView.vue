@@ -5,6 +5,10 @@
             <button>X</button>
         </div>
 
+        <router-link to="/programs" class="button-link">
+            < Back to your programs
+        </router-link>
+
         <h1>Super Strength</h1>
         <p>Trainer: Roger “Rock” Lockridge (Male)</p>
 
