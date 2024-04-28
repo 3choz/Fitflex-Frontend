@@ -7,13 +7,6 @@ export class ResponseResultDTO {
     #isSuccessful;
 
     /**
-     * The result of the request
-     * @optional
-     * @type {any}
-     */
-    #result;
-
-    /**
      * The error message if the request was not successful
      * @optional
      * @type {string}
@@ -26,9 +19,8 @@ export class ResponseResultDTO {
      * @param {any} result The result of the request
      * @param {string} errorMessage The error message if the request was not successful
      */
-    constructor(isSuccessful, result = null, errorMessage = ""){
+    constructor(isSuccessful, errorMessage = ""){
         this.#isSuccessful = isSuccessful;
-        this.#result = result;
         this.#errorMessage = errorMessage;
     }
 
@@ -37,10 +29,6 @@ export class ResponseResultDTO {
      */
     getIsSuccessful = () => this.#isSuccessful;
 
-    /**
-     * @returns {any} The result of the request
-     */
-    getResult = () => this.#result;
 
     /**
      * @returns {string} The error message if the request was not successful

@@ -5,65 +5,65 @@ export class ProgramModel {
      * @apiName prgmID
      * @type {number}
      */
-    #programId;
+    #id;
     
     /**
      * Name of the program
      * @apiName prgmName
      * @type {string}
      */
-    #programName
+    #name
 
     /**
      * Description of the program
      * @apiName prgmDescription
      * @type {string}
      */
-    #programDescription
+    #description
 
     /**
      * Difficulty of the program
      * @apiName prgmDifficulty
      * @type {string}
      */
-    #programDifficulty
+    #difficulty
 
     /**
      * Creates a new program object
-     * @param {number} programId
-     * @param {string} programName 
-     * @param {string} programDescription
-     * @param {string} programDifficulty 
+     * @param {number} id
+     * @param {string} name 
+     * @param {string} description
+     * @param {string} difficulty 
      */
-    constructor(programId, programName, programDescription, programDifficulty){
-        this.#programId = programId;
-        this.#programName = programName;
-        this.#programDescription = programDescription;
-        this.#programDifficulty = programDifficulty;
+    constructor(id, name, description, difficulty){
+        this.#id = id;
+        this.#name = name;
+        this.#description = description;
+        this.#difficulty = difficulty;
     }
 
     /**
      * @returns {number} The ID of the program
      */
-    getProgramId = () => this.#programId;
+    getId = () => this.#id;
 
     /**
      * @returns {string} The name of the program
      */
-    getProgramName = () => this.#programName;
+    getName = () => this.#name;
 
     /**
      * @returns {string} The description of the program
      */
-    getProgramDescription = () => this.#programDescription;
+    getDescription = () => this.#description;
 
     /**
      * @returns {string} The difficulty of the program
      */
-    getProgramDifficulty = () => this.#programDifficulty;
+    getDifficulty = () => this.#difficulty;
 
     /**
      * @returns {string} A string representation of the ProgramModel object
      */
-    toString = () => `ProgramModel: { programId: ${this.#programId}, programName: ${this.#programName}, programDescription: ${this.#programDescription}, programDifficulty: ${this.#programDifficulty} }`;
+    toString = () => `ProgramModel: { Id: ${this.#id}, Name: ${this.#name}, Description: ${this.#description}, Difficulty: ${this.#difficulty} }`;
 }

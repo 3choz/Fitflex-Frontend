@@ -10,10 +10,10 @@
         <h1>Programs</h1>
         <div v-for="program in programs">
             <br>
-            <h2>{{ program.getProgramName() }}</h2>
-            <p>Id: {{ program.getProgramId() }}</p>
-            <p>Description: {{ program.getProgramDescription() }}</p>
-            <p>Difficulty: {{ program.getProgramDifficulty() }}</p>
+            <h2>{{ program.getName() }}</h2>
+            <p>Id: {{ program.getId() }}</p>
+            <p>Description: {{ program.getDescription() }}</p>
+            <p>Difficulty: {{ program.getDifficulty() }}</p>
             <p>To String JSON: {{ program.toString() }}</p>
         </div>
     </div>
@@ -22,6 +22,7 @@
 <script>
 import { getPrograms, testApiEndpoint } from "@/ApiUtils.js";
 import { TestApiModel } from "@/models/TestApiModel";
+import { ProgramModel } from "@/models/ProgramModel";
 
 export default {
     data() {

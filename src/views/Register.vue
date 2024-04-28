@@ -123,6 +123,7 @@ export default {
             const user = new UserModel(this.email, this.firstName, this.lastName, this.dateOfBirth, this.sex, this.phoneNumber);
             console.log(user.toString());
             await createUser(user, this.password);
+            
         }
     }
 }
