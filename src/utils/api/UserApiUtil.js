@@ -58,7 +58,7 @@ export const getUser = (email) => axios
 .post(createEndpoint("getuser"), {userEmail: email})
 .then(response => {
   const user = response.data;
-  console.log(user);
+  console.log("Response from getuser:", user);
   return new UserModel(user.userEmail, user.passID, user.prgmID, user.userFirstName, user.userLastName, user.UserDOB, user.userSex, user.userPhone);
 })
 .catch(error => {console.error("Error fetching user: ", error);});

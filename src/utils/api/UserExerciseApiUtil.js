@@ -20,12 +20,13 @@ const createUserExerciseModels = (response) =>response.map(ue =>
  * @returns {Promise<UserExerciseModel[]>} A promise that resolves to an array of UserExerciseModel objects
  */
 export const getUserExercisesByExercise = (user, exercise) => axios
-.post(createEndpoint("getuserexercisesbyexercise"), {userEmail: user.getEmail(), exID: exercise.getID()})
+.post(createEndpoint("getuserexercisesbyexercise"), {userEmail: user.getEmail(), exID: exercise.getId()})
 .then(response => createUserExerciseModels(response.data))
 .catch(error => {console.error("Error fetching user exercises by exercise: ", error);});
 
 /**
  * Get the exercises assigned to the user by program
+ * @APIError Currently has a "list index out of range" error (use TestApi to test)
  * @param {UserExerciseModel | int} userExercise
  * @returns {Promise<UserExerciseModel[]>} A promise that resolves to an array of Exercise objects
  */

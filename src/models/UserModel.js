@@ -121,5 +121,5 @@ export class UserModel{
     /**
      * @returns {string} A string representation of the UserModel object
      */
-    toString = () => `UserModel: {email: ${this.#email}, passwordId: ${this.#passwordId}, programId: ${this.programId}, firstName: ${this.#firstName}, lastName: ${this.#lastName}, dateOfBirth: ${this.#dateOfBirth}, sex: ${this.#sex}, phoneNumber: ${this.#phoneNumber}}`;
+    toString = () => `UserModel: {email: ${this.#email}, passwordId: ${this.#passwordId}, programId: ${this.#programId}, firstName: ${this.#firstName}, lastName: ${this.#lastName}, dateOfBirth: ${this.#dateOfBirth}, sex: ${this.#sex}, phoneNumber: ${this.#phoneNumber}}`;
 }

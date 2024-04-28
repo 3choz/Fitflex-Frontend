@@ -46,6 +46,6 @@ export const updateUserAssignedProgram = (user, program) => axios
  * @returns {Promise<ProgramModel>} A promise that resolves to an array of Program objects
  */
 export const getUserAssignedProgram = (user) => axios
-.get(createEndpoint("getprogram"), {userEmail: user.getEmail()})
-.then(response => createProgramModel(response.data))
+.post(createEndpoint("getprogram"), {userEmail: user.getEmail()})
+.then(response => createProgramModel(response.data[0]))
 .catch(error => {console.error("Error fetching assigned programs: ", error);});
