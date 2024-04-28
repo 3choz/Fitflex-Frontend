@@ -65,8 +65,11 @@
 </template>
 
 <script>
-import { createUser } from "@/ApiUtils.js";
 import { UserModel } from "@/models/UserModel";
+import { createUser } from "@/utils/api/UserApiUtil";
+import { saveUserToSession } from "@/utils/session/SessionUtils";
+import { getPrograms, updateUserAssignedProgram } from "@/utils/api/ProgramsApiUtil";
+
 export default {
     name: 'Register',
     data() {
@@ -121,8 +124,16 @@ export default {
             }
 
             const user = new UserModel(this.email, this.firstName, this.lastName, this.dateOfBirth, this.sex, this.phoneNumber);
-            console.log(user.toString());
-            await createUser(user, this.password);
+            const userCreationResult = await createUser(user, this.password);
+            if(userCreationResult.getIsSuccessful){
+                const programs = await getPrograms();
+                const program = programs[0];
+                await updateUserAssignedProgram(user, );
+                
+                saveUserToSession(new UserModel(user.getEmail(), 0, program.getId(), user.getFirstName(), user.getLastName(), user.getDateOfBirth(), user.getSex(), user.getPhoneNumber()));
+            } else {
+                alert(userCreationResult.getMessage());
+            }
         }
     }
 }

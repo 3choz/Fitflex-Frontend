@@ -8,6 +8,20 @@ export class UserModel{
     #email;
 
     /**
+     * ID for the password
+     * @apiName passID
+     * @type {number}
+     */
+    #passwordId;
+
+    /**
+     * ID for the program
+     * @apiName prgmID
+     * @type {number}
+     */
+    #programId;
+
+    /**
      * User's first name
      * @apiName userFirstName
      * @type {string}
@@ -24,16 +38,9 @@ export class UserModel{
     /**
      * User's date of birth
      * @apiName userDOB
-     * @type {string}
+     * @type {string} (mm/dd/yyyy)
      */
     #dateOfBirth;
-
-    /**
-     * User's sex
-     * @apiName userSex
-     * @type {string}
-     */
-    #sex;
 
     /**
      * User's phone number
@@ -43,16 +50,27 @@ export class UserModel{
     #phoneNumber;
 
     /**
+     * User's sex
+     * @apiName userSex
+     * @type {string}
+     */
+    #sex;
+
+    /**
      * Creates a new user object
      * @param {string} email
+     * @param {number} passwordId
+     * @param {number} programId
      * @param {string} firstName
      * @param {string} lastName
      * @param {string} dateOfBirth
      * @param {string} sex
      * @param {string} phoneNumber
      */
-    constructor(email, firstName, lastName, dateOfBirth, sex, phoneNumber){
+    constructor(email, passwordId, programId, firstName, lastName, dateOfBirth, sex, phoneNumber){
         this.#email = email;
+        this.#passwordId = passwordId;
+        this.#programId = programId;
         this.#firstName = firstName;
         this.#lastName = lastName;
         this.#dateOfBirth = dateOfBirth;
@@ -64,6 +82,16 @@ export class UserModel{
      * @returns {string} The email of the user
      */
     getEmail = () => this.#email;
+
+    /**
+     * @returns {number} The password ID of the user
+     */
+    getPasswordId = () => this.#passwordId;
+
+    /**
+     * @returns {number} The program ID of the user
+     */
+    getProgramId = () => this.#programId;
 
     /**
      * @returns {string} The first name of the user
@@ -93,7 +121,5 @@ export class UserModel{
     /**
      * @returns {string} A string representation of the UserModel object
      */
-    toString = () => {
-        return `UserModel: {email: ${this.#email}, firstName: ${this.#firstName}, lastName: ${this.#lastName}, dateOfBirth: ${this.#dateOfBirth}, sex: ${this.#sex}, phoneNumber: ${this.#phoneNumber}}`;
-    };
+    toString = () => `{email: ${this.#email}, passwordId: ${this.#passwordId}, programId: ${this.#programId}, firstName: ${this.#firstName}, lastName: ${this.#lastName}, dateOfBirth: ${this.#dateOfBirth}, sex: ${this.#sex}, phoneNumber: ${this.#phoneNumber}}`;
 }
