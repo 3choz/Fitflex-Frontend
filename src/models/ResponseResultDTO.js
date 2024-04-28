@@ -34,4 +34,9 @@ export class ResponseResultDTO {
      * @returns {string} The error message if the request was not successful
      */
     getErrorMessage = () => this.#errorMessage;
+
+    /**
+     * @return {string} The string representation of the object
+     */
+    toString = () => `{ isSuccessful: ${this.#isSuccessful}, errorMessage: ${this.#errorMessage} }`;
 }

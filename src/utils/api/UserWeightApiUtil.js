@@ -1,4 +1,4 @@
-import { axios } from 'axios';
+import axios from 'axios';
 import { createEndpoint, createResponseResultDTO } from './ApiConstantsUtil';
 import { ResponseResultDTO } from '../../models/ResponseResultDTO';
 import { UserModel } from '@/models/UserModel';

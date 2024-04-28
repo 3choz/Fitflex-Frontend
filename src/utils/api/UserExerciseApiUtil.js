@@ -1,4 +1,4 @@
-import { axios, AxiosResponse } from 'axios';
+import axios from 'axios';
 import { createEndpoint, createResponseResultDTO } from './ApiConstantsUtil';
 import { ExerciseModel } from '@/models/ExerciseModel';
 import { ResponseResultDTO } from '../../models/ResponseResultDTO';
@@ -7,7 +7,7 @@ import { UserExerciseModel } from '@/models/UserExerciseModel';
 
 /**
  * 
- * @param {AxiosResponse<any, any>} response 
+ * @param {import('axios').AxiosResponse<any, any>} response 
  * @returns {UserExerciseModel[]} An array of UserExercise objects
  */
 const createUserExerciseModels = (response) =>response.map(ue => 

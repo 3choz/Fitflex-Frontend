@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import router from '@/router';
-import { loginUser, getUser } from '@/ApiUtils.js';
+import router from '@/router'; 
 import { ResponseResultDTO } from '@/models/ResponseResultDTO.js';
 import { UserModel } from '@/models/UserModel';
+import { loginUser, getUser } from '@/utils/api/UserApiUtil';
 
 export default {
   name: 'Login',
@@ -45,6 +45,7 @@ export default {
     async submitForm() {
       // console.log(`Username: ${this.username}, Password: ${this.password}`)
       if (this.username && this.password) {
+        // const result = await loginUser(this.username, this.password)
         const result = await loginUser(this.username, this.password)
         console.log(`Was successful: ${result.getIsSuccessful()}, Message: ${result.getErrorMessage()}`)
 

@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import { createUser } from "@/ApiUtils.js";
 import { UserModel } from "@/models/UserModel";
+import { createUser } from "@/utils/api/UserApiUtil";
 export default {
     name: 'Register',
     data() {

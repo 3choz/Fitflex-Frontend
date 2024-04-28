@@ -1,4 +1,4 @@
-import { axios, AxiosResponse } from 'axios';
+import axios from 'axios';
 import { createEndpoint, createResponseResultDTO } from './ApiConstantsUtil';
 import { ProgramModel } from '../../models/ProgramModel';
 import { ResponseResultDTO } from '../../models/ResponseResultDTO';
@@ -6,19 +6,17 @@ import { UserModel } from '@/models/UserModel';
 
 /**
  * Create a list of Program objects from the programs endpoint
- * @param {AxiosResponse} programs 
+ * @param {import('axios').AxiosResponse<any, any>} programs 
  * @returns 
  */
-const createProgramModel = (programs) => programs.map(program => 
-        new ProgramModel(program.prgmID, program.prgmName, program.prgmDescription, program.prgmDifficulty))
+const createProgramModel = (program) => new ProgramModel(program.prgmID, program.prgmName, program.prgmDescription, program.prgmDifficulty);
 
 /**
  * Get a list of all available programs.
  * @returns {Promise<ProgramModel[]>} A promise that resolves to an array of Program objects
  */
-export const getPrograms = () => axios
-.get(createEndpoint("getprograms"))
-.then(response => createProgramModel(response.data))
+export const getPrograms = () => axios.get(createEndpoint("getprograms"))
+.then(response => response.data.map(program => createProgramModel(program)))
 .catch(error => {console.error("Error fetching programs: ", error);});
 
 /**
@@ -28,7 +26,7 @@ export const getPrograms = () => axios
  */
 export const getProgramsByDifficulty = (difficulty) => axios
 .post(createEndpoint("getprogramsbydifficulty"), {prgmDifficulty: difficulty})
-.then(response => createProgramModel(response.data))
+.then(response => response.data.map(program => createProgramModel(program)))
 .catch(error => {console.error("Error fetching programs by difficulty: ", error);});
 
 /**

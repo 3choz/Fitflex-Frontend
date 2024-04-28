@@ -67,7 +67,7 @@ export class UserModel{
      * @param {string} sex
      * @param {string} phoneNumber
      */
-    constructor(email, passwordId = 0, programId = 0, firstName, lastName, dateOfBirth, sex, phoneNumber){
+    constructor(email, passwordId, programId, firstName, lastName, dateOfBirth, sex, phoneNumber){
         this.#email = email;
         this.#passwordId = passwordId;
         this.#programId = programId;
@@ -121,5 +121,5 @@ export class UserModel{
     /**
      * @returns {string} A string representation of the UserModel object
      */
-    toString = () => `UserModel: {email: ${this.#email}, passwordId: ${this.#passwordId}, programId: ${this.programId}}, firstName: ${this.#firstName}, lastName: ${this.#lastName}, dateOfBirth: ${this.#dateOfBirth}, sex: ${this.#sex}, phoneNumber: ${this.#phoneNumber}}`;
+    toString = () => `UserModel: {email: ${this.#email}, passwordId: ${this.#passwordId}, programId: ${this.programId}, firstName: ${this.#firstName}, lastName: ${this.#lastName}, dateOfBirth: ${this.#dateOfBirth}, sex: ${this.#sex}, phoneNumber: ${this.#phoneNumber}}`;
 }
