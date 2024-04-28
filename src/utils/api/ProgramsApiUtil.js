@@ -36,7 +36,7 @@ export const getProgramsByDifficulty = (difficulty) => axios
  * @returns {Promise<ResponseResultDTO>} A promise that resolves to true if the program was assigned successfully 
  */
 export const updateUserAssignedProgram = (user, program) => axios
-.post(createEndpoint("updateprogram"), { userEmail: user.getEmail(), prgmID: program.getID() })
+.post(createEndpoint("updateprogram"), { userEmail: user.getEmail(), prgmID: program.getId() })
 .then(response => createResponseResultDTO(response))
 .catch(error => {console.error("Error assigning user to program: ", error)});
 

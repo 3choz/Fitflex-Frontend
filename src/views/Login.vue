@@ -30,28 +30,28 @@
 import router from '@/router'; 
 import { ResponseResultDTO } from '@/models/ResponseResultDTO.js';
 import { UserModel } from '@/models/UserModel';
-import { loginUser, getUser } from '@/utils/api/UserApiUtil';
+import { loginUser, getUser } from "@/utils/api/UserApiUtil";
+import { saveUserToSession, getUserFromSession } from '@/utils/session/SessionUtils';
 
 export default {
   name: 'Login',
   data() {
     return {
       username: '',
-      password: '',
-      userModel: null
+      password: ''
     }
   },
   methods: {
     async submitForm() {
-      // console.log(`Username: ${this.username}, Password: ${this.password}`)
       if (this.username && this.password) {
-        // const result = await loginUser(this.username, this.password)
-        const result = await loginUser(this.username, this.password)
-        console.log(`Was successful: ${result.getIsSuccessful()}, Message: ${result.getErrorMessage()}`)
+        const loginResponse = await loginUser(this.username, this.password)
+        console.log("Login Response", loginResponse.toString(), loginResponse)
 
-        if(result.getIsSuccessful()){
-          this.userModel = await getUser(this.username);
-          console.log(this.userModel.toString());
+        if(loginResponse.getIsSuccessful()){
+          const userModel = await getUser(this.username);
+          console.log(userModel.toString());
+          saveUserToSession(userModel);
+          getUserFromSession();
         }
       }
     }
