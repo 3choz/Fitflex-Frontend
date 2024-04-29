@@ -206,5 +206,5 @@
        position: relative;
        padding-bottom: 20px;
    }
-   </style
+   </style>
   
