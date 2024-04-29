@@ -31,7 +31,7 @@
 
                 <div>
                     <label for="phoneNumber">Phone Number</label>
-                    <input v-model="phoneNumber" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    <input v-model="phoneNumber" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                         placeholder="Phone Number">
                 </div>
                 <div>
@@ -74,6 +74,7 @@ export default {
     name: 'Register',
     data() {
         return {
+            defaultProgram: null,
             firstName: "",
             lastName: "",
             dateOfBirth: "",
@@ -83,6 +84,11 @@ export default {
             password: "",
             confirmPassword: ""
         }
+    },
+    async mounted(){
+        const programs = await getPrograms();
+        this.defaultProgram = programs[0];
+        console.log("Default Program for sign in", this.defaultProgram, this.defaultProgram.toString())
     },
     methods: {
         async submitForm() {
@@ -123,13 +129,14 @@ export default {
                 return;
             }
 
-            const user = new UserModel(this.email, this.firstName, this.lastName, this.dateOfBirth, this.sex, this.phoneNumber);
+            console.log(this.phoneNumber);
+
+            const user = new UserModel(this.email, 0, 0, this.firstName, this.lastName, this.dateOfBirth, this.sex, this.phoneNumber);
             const userCreationResult = await createUser(user, this.password);
-            if(userCreationResult.getIsSuccessful){
-                const programs = await getPrograms();
-                const program = programs[0];
-                await updateUserAssignedProgram(user, );
-                
+            console.log("Result of createuser", userCreationResult, userCreationResult.toString());
+
+            if(userCreationResult.getIsSuccessful()){
+                await updateUserAssignedProgram(user, this.defaultProgram);
                 saveUserToSession(new UserModel(user.getEmail(), 0, program.getId(), user.getFirstName(), user.getLastName(), user.getDateOfBirth(), user.getSex(), user.getPhoneNumber()));
             } else {
                 alert(userCreationResult.getMessage());
