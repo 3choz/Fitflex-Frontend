@@ -57,21 +57,16 @@ export default {
             return;
         }
 
-        console.log(`Updating password for ${this.user.getEmail()}`)
-        console.log(`Current Password: ${this.currentPassword}`)
-        console.log(`New Password: ${this.newPassword}`)
-        console.log(`Confirm New Password: ${this.confirmNewPassword}`)
-
-        // const updatedUserResponse = await updateUserPassword(this.user, this.currentPassword, this.newPassword);
-        // if(updatedUserResponse.getIsSuccessful()){
-        //   alert("Password updated successfully");
-        //   router.push('/profile');
-        // } else {
-        //   const message = `Error While Updating: ${updatedUserResponse.toString()}`;
-        //   alert(message);
-        //   console.log(message);
-        //   return;
-        // }
+        const updatedUserResponse = await updateUserPassword(this.user, this.currentPassword, this.newPassword);
+        if(updatedUserResponse.getIsSuccessful()){
+          alert("Password updated successfully");
+          router.push('/profile');
+        } else {
+          const message = `Error While Updating: ${updatedUserResponse.toString()}`;
+          alert(message);
+          console.log(message);
+          return;
+        }
     }
   }
 }

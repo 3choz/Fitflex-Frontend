@@ -72,7 +72,7 @@ const routes = [
     component: VideoView,
   },
   {
-    path: "/updatepassword",
+    path: "/profile/updatepassword",
     name: "UpdateUserPassword",
     component: UpdatePassword,
   }

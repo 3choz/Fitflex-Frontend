@@ -35,7 +35,7 @@
         <p v-if="assignedProgram !== null">Assigned Program: {{ assignedProgram.getName() }} </p>
       </div>
       <button class="button-link" @click="editUser = true">Edit</button>
-      <router-link to="/updatepassword" class="button-link">Change Password</router-link>
+      <router-link to="/profile/updatepassword" class="button-link">Change Password</router-link>
     </div>
     <div v-else class="register update-profile user-auth-input-box">
       <div v-if="!changePassword">
