@@ -122,4 +122,18 @@ export class UserModel{
      * @returns {string} A string representation of the UserModel object
      */
     toString = () => `{email: ${this.#email}, passwordId: ${this.#passwordId}, programId: ${this.#programId}, firstName: ${this.#firstName}, lastName: ${this.#lastName}, dateOfBirth: ${this.#dateOfBirth}, sex: ${this.#sex}, phoneNumber: ${this.#phoneNumber}}`;
+
+    /**
+     * @returns {string} A JSON string representation of the UserModel object. Used for storing and retrieving from the sessionStorage
+     */
+    toJsonString = () => JSON.stringify({
+        email: this.#email,
+        passwordId: this.#passwordId,
+        programId: this.#programId,
+        firstName: this.#firstName,
+        lastName: this.#lastName,
+        dateOfBirth: this.#dateOfBirth,
+        sex: this.#sex,
+        phoneNumber: this.#phoneNumber
+    });
 }
