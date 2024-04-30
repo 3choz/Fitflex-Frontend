@@ -27,7 +27,7 @@
 
   <section class="boxy-area">
     <h2>We provide the following:</h2>
-    <div class="boxy-containe">
+    <div class="boxy-container">
       <div class="boxy light-red">
         <p>Free pre-approved workouts with different difficulty levels.</p> &nbsp; &nbsp;  &nbsp;  <span><img
             src="../assets/icon1.png" class="small-icon1" alt=""></span>
@@ -102,6 +102,8 @@ export default {
 
 .boxy-area{
   margin-top: 20px;
+  display: inline-block;
+  width: 77rem;
 }
 
 .light-red {
@@ -142,5 +144,8 @@ export default {
 .small-icon4 {
   height: 42px;
   width: 58px;
+}
+.boxy-container{
+  margin-left: 14rem;
 }
 </style>
