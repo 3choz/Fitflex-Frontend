@@ -8,23 +8,18 @@
     <div class="landing-header">
       <div>
         <p>We Bring The Tools you need to succeed.</p>
-        <router-link to="/register" class="button-link">
+        <router-link v-if="!isSignedIn" to="/register" class="button-link">
           Join Us
+        </router-link>
+        <router-link v-else to="/programsignup" class="button-link">
+          Start Your Journey
         </router-link>
       </div>
 
-      <div>
+      <div v-if="!isSignedIn">
         <p>Already have an account?</p>
         <router-link to="/login" class="button-link">
           Login
-        </router-link>
-      </div>
-
-      <div>
-        <p></p>
-        <!-- Will only be visible in the logged in state -->
-        <router-link to="/programsignup" class="button-link">
-          Start Your Journey
         </router-link>
       </div>
     </div>
@@ -63,13 +58,20 @@
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
 import FooterBelow from '@/components/FooterBelow.vue'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'LandingPage',
   components: {
     NavBar,
     FooterBelow
-  }
+  },
+  computed: {
+    ...mapGetters(["user"]),
+    isSignedIn() {
+      return this.user !== null;
+    }
+  },
 }
 </script>
 
