@@ -9,6 +9,7 @@ import ForgotUserNamePassword from "../views/ForgotUserNamePassword.vue";
 import Profile from "../views/Profile.vue";
 import ProgramSignup from "../views/ProgramSignup.vue";
 import TestApi from "@/views/TestApi.vue";
+import UpdatePassword from "@/views/UpdatePassword.vue";
 
 const routes = [
   {
@@ -70,6 +71,11 @@ const routes = [
     name: "video",
     component: VideoView,
   },
+  {
+    path: "/updatepassword",
+    name: "UpdateUserPassword",
+    component: UpdatePassword,
+  }
 ];
 
 const router = createRouter({

@@ -94,9 +94,19 @@ export class UserModel{
     getProgramId = () => this.#programId;
 
     /**
+     * @param {number} programId The new program ID for the user
+     */
+    setProgramId = (programId) => this.#programId = programId;
+
+    /**
      * @returns {string} The first name of the user
      */
     getFirstName = () => this.#firstName;
+
+    /**
+     * @param {string} firstName The new first name for the user
+     */
+    setFirstName = (firstName) => this.#firstName = firstName;
 
     /**
      * @returns {string} The last name of the user
@@ -104,9 +114,21 @@ export class UserModel{
     getLastName = () => this.#lastName;
 
     /**
+     * @param {string} lastName The new last name for the user
+     * @returns {void}
+     */
+    setLastName = (lastName) => this.#lastName = lastName;
+
+    /**
      * @returns {string} The date of birth of the user
      */
     getDateOfBirth = () => this.#dateOfBirth;
+
+    /**
+     * @param {string} dateOfBirth The new date of birth for the user
+     * @returns {void}
+     */
+    setDateOfBirth = (dateOfBirth) => this.#dateOfBirth = dateOfBirth;
 
     /**
      * @returns {string} The user's sex
@@ -114,9 +136,21 @@ export class UserModel{
     getSex = () => this.#sex;
 
     /**
+     * @param {string} TThe user's updated sex
+     * @returns {void}
+     */
+    setSex = (sex) => this.#sex = sex;
+
+    /**
      * @returns {string} The phone number of the user
      */
     getPhoneNumber = () => this.#phoneNumber;
+
+    /**
+     * @param {string} phoneNumber The new phone number for the user
+     * @returns {void}
+     */
+    setPhoneNumber = (phoneNumber) => this.#phoneNumber = phoneNumber;
 
     /**
      * @returns {string} A string representation of the UserModel object
