@@ -4,15 +4,16 @@ import router from "@/router";
 const SESSION_STORAGE_KEY = "user";
 
 /**
- * Save user to session storage
+ * Save user to session storage and send the user to a new page
  * @param {UserModel} user 
  * @param {Function} userSignIn, needs ...mapActions(['userSignIn']) in the component
+ * @param {string} routePath, optional
  */
-export const saveUserToSession = function(user, userSignIn){
+export const saveUserToSession = function(user, userSignIn, routePath = "/"){
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(user.toJsonString()));
     console.log("User saved to session storage");
     userSignIn(user);
-    router.push("/");
+    router.push(routePath);
 }
 
 /**

@@ -1,31 +1,22 @@
-<!-- <template>
-  <br>
-    <div class="profile" id="profile">
-      <form>
-        <p>Buffed_Duck</p>
-        <p>Username: <input type="text" required v-model="itemName"></p>
-        <p>First Name: <input type="text" v-model="itemNumber"></p>
-        <p>Last Name: <input type="text" v-model="itemNumber"></p>
-        <p>Email: <input type="text" v-model="itemNumber"></p>
-        <p>Phone Number: <input type="text" v-model="itemNumber"></p>
-        <p>Date of Birth: <input type="text" v-model="itemNumber"></p>
-        <p>Password: <input type="password" v-model="itemNumber"></p>
-        
-        <button type="submit">Save Changes</button>
-      </form>
-      <br>
-      <button type="submit" class="blue-button">Delete Account</button>
-
-    </div>
-  </template> -->
-
-<!-- -- -->
-
 <template>
   <div class="update-profile">
-    <div class="register update-profile user-auth-input-box">
+    <div v-if="!editUser" class="register update-profile user-auth-input-box">
+      <h2>Your Information</h2>
+      <div>
+        <p>Email: {{ user.getEmail() }}</p>
+        <p>First Name: {{ user.getFirstName() }}</p>
+        <p>Last Name: {{ user.getLastName() }}</p>
+        <p>Date of Birth: {{ user.getDateOfBirth() }}</p>
+        <p>Sex: {{ user.getSex() }}</p>
+        <p>Phone Number: {{ user.getPhoneNumber() }}</p>
+        <p v-if="assignedProgram !== null">Assigned Program: {{ assignedProgram.getName() }} </p>
+      </div>
+      <button class="button-link" @click="editUser = true">Edit</button>
+      <router-link to="/profile/updatepassword" class="button-link">Change Password</router-link>
+    </div>
+    <div v-else class="register update-profile user-auth-input-box">
       <h2>Edit your information</h2>
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="updateUserInformation">
         <div>
           <div>
             <label for="firstName">First Name</label>
@@ -48,43 +39,83 @@
             <option value="Other">Other</option>
           </select>
         </div>
-
         <div>
           <label for="phoneNumber">Phone Number</label>
           <input v-model="phoneNumber" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone Number">
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input v-model="email" type="email" placeholder="Email">
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input v-model="password" type="text" placeholder="Password">
-        </div>
-        <div>
-          <label for="confirmPassword">Confirm Password</label>
-          <input v-model="confirmPassword" type="text" placeholder="Confirm Password">
-        </div>
         <br>
         <button class="button-link" type="submit">Save Changes</button>
+        <button class="button-link" @click="editUser = false">Cancel</button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+import { getUserAssignedProgram } from '@/utils/api/ProgramsApiUtil';
+import { updateUser } from '@/utils/api/UserApiUtil';
+import { getUserFromSession, isUserLoggedIn, saveUserToSession } from '@/utils/session/SessionUtils';
+import { mapActions } from 'vuex';
+
 export default {
   name: 'UserProfile',
-  // Add your Vue data, methods, etc. here
+  data() {
+    return {
+      user: isUserLoggedIn() ? getUserFromSession() : null,
+      assignedProgram: null,
+      editUser: false,
+      firstName: "",
+      lastName: "",
+      dateOfBirth: "",
+      sex: "",
+      phoneNumber: ""
+    }
+  },
+  beforeRouteEnter(to, from, next){
+    if(!isUserLoggedIn()){
+      next('/login');
+    } else {
+      next();
+    }
+  },
+  async mounted(){
+    this.assignedProgram = await getUserAssignedProgram(this.user);
+  },
+  methods: {
+    ...mapActions(['userSignIn']),
+    async updateUserInformation() {
+      if(this.firstName !== ""){
+        this.user.setFirstName(this.firstName);
+      }
+
+      if(this.lastName !== ""){
+        this.user.setLastName(this.lastName);
+      }
+
+      if(this.dateOfBirth !== ""){
+        this.user.setDateOfBirth(this.dateOfBirth);
+      }
+
+      if(this.sex !== ""){
+        this.user.setSex(this.sex);
+      }
+
+      if(this.phoneNumber !== ""){
+        this.user.setPhoneNumber(this.phoneNumber);
+      }
+
+      const updateUserResponse = await updateUser(this.user);
+      if(!updateUserResponse.getIsSuccessful()){
+        const errorMessage = `Error updating user: ${updateUserResponse.getErrorMessage()}`;
+        console.log(errorMessage);
+        alert(errorMessage);
+        return;
+      }
+
+      console.log(updateUserResponse.toString());
+      saveUserToSession(this.user, this.userSignIn, "/profile");
+      this.editUser = false;
+    },
+  }
 };
 </script>
-
-
-<style>
-.update-profile {
-  display: inline-block;
-  text-align: center;
-  width: 30rem;
-  margin-bottom: 80px;
-}
-</style>
