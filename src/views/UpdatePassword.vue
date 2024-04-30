@@ -17,7 +17,7 @@
             </div>
             <br>
             <button class="button-link" type="submit">Update Password</button>
-            <button class="button-link" @click="editUser = false; changePassword = false">Cancel</button>
+            <router-link to="/profile" class="button-link">Cancel</router-link>
             </form>
         </div>
     </div>

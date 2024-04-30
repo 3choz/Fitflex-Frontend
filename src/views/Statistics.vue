@@ -13,12 +13,20 @@
 // @ is an alias to /src
 import FeedBack from '@/components/Feedback.vue'
 import CurrentProgress from '@/components/CurrentProgress.vue'
+import { isUserLoggedIn } from '@/utils/session/SessionUtils';
 
 export default {
   name: 'Statistics',
   components: {
     FeedBack,
     CurrentProgress, 
+  },
+  beforeRouteEnter(to, from, next){
+    if(isUserLoggedIn()){
+      next();
+    } else {
+      next("/login");
+    }
   }
 }
 </script>

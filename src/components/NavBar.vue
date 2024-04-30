@@ -6,7 +6,7 @@
         <ul>
           <li><a href="#"><router-link to="/">Home</router-link> </a></li>
           <li><a href="#"><router-link to="/programs">Programs</router-link></a> </li>
-          <li><a href="#"><router-link to="/stats">Statistics</router-link></a> </li>
+          <li v-if="isSignedIn"><a href="#"><router-link to="/stats">Statistics</router-link></a> </li>
           <li v-if="!isSignedIn"><a href="#"><router-link to="/login">Login</router-link></a></li>
           <li v-if="!isSignedIn"><a href="#"><router-link to="/register">Register</router-link></a></li>
           <li v-if="isSignedIn"><a href="#"><router-link to="/profile">Profile</router-link></a></li>
