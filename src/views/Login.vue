@@ -19,6 +19,8 @@
         </div>
       
         <router-link to="/forgot">I Forgot Username or Password</router-link>
+        <br>
+        <router-link to="/register">Don't Have An Accoun't? Join Us!</router-link>
         <button class="button-link" type="submit">Log In</button>
       </form>
       <img alt="Man Lifting" src="../assets/man-lifting.png">
@@ -27,11 +29,9 @@
 </template>
 
 <script>
-import router from '@/router'; 
-import { ResponseResultDTO } from '@/models/ResponseResultDTO.js';
-import { UserModel } from '@/models/UserModel';
 import { loginUser, getUser } from "@/utils/api/UserApiUtil";
-import { saveUserToSession, getUserFromSession } from '@/utils/session/SessionUtils';
+import { saveUserToSession } from '@/utils/session/SessionUtils';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Login',
@@ -42,6 +42,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['userSignIn']),
     async submitForm() {
       if (this.username && this.password) {
         const loginResponse = await loginUser(this.username, this.password)
@@ -50,8 +51,8 @@ export default {
         if(loginResponse.getIsSuccessful()){
           const userModel = await getUser(this.username);
           console.log(userModel.toString());
-          saveUserToSession(userModel);
-          getUserFromSession();
+
+          saveUserToSession(userModel, this.userSignIn);
         }
       }
     }
