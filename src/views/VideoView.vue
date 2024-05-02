@@ -108,7 +108,7 @@ export default {
       font-weight: bold;
       cursor: pointer;
       position: absolute;
-      right: -570px;
+      left: 63%;
       top: 70px;
       width: 350px;
       text-align: center;
@@ -128,11 +128,13 @@ export default {
       margin-bottom: 20px;
       border: 1px solid #f5c6cb;
       position: relative;
+      width: 38%;
   }
   
   .notification button {
       position: absolute;
-      right: 10px;
+      right: 0px;
+      left: 92%;
       top: 5%;
       transform: translateY(-50%);
       background: none;
@@ -147,11 +149,17 @@ export default {
       font-weight: bold;
       margin-top: 20px;
       margin-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      left: -26%;
       line-height: 1.6;
   }
   
   /* Video thumbnail styles */
   .video-thumbnail {
+      position: relative;
+      left: -450px;
       margin-bottom: 30px;
   }
   
@@ -164,13 +172,34 @@ export default {
       box-sizing: border-box;
       position: absolute;
       top: 155px;
-      left: 175%;
+      left: 78%;
       transform: translateX(-60%);
       width: 90%; /* Box made longer */
       max-width: 600px;
       margin-top: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  /* Style for the workout title */
+.add-workout-page h1 {
+    color: black; 
+    font-size: 2em; 
+    text-align: center; 
+    margin-bottom: 0.5em; 
+    position: relative;
+    left: -600px;
+}
+
+/* Style for the trainer information */
+.add-workout-page p {
+    color: black; 
+    font-size: 1em; 
+    text-align: center; 
+    margin-top: 0; 
+    margin-bottom: 1em; 
+    position: relative;
+    left: -580px;
+}
   
   .workout-summary h2 {
       text-align: center;
@@ -224,6 +253,8 @@ export default {
       font-weight: bold;
       cursor: pointer;
       margin-top: 20px;
+      position: relative;
+      left: -43%;
   }
   
   button:hover {
