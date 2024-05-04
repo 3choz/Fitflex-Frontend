@@ -55,6 +55,11 @@ export class UserWeightModel{
      */
     getWeight = () => this.#weight;
 
+     /**
+     * @param {string} weight The new weight name for the user
+     */
+     setWeight = (weight) => this.#weight = weight;
+
     /**
      * @return {string} String representation of the object
      */
