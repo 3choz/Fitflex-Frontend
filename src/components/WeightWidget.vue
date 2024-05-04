@@ -22,14 +22,12 @@
 
 
 import { getUserWeights, createUserWeight } from '@/utils/api/UserWeightApiUtil';
-import { getUserFromSession, isUserLoggedIn } from '@/utils/session/SessionUtils';
 import { mapActions } from 'vuex';
 
 export default {
     name: 'WeightWidget',
     data() {
         return {
-            user: isUserLoggedIn() ? getUserFromSession() : null,
             currWeight: '',
             goalWeight: ''
         }
