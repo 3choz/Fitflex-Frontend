@@ -137,14 +137,17 @@ body {
 /* About */
 .about 
 {
+  
   display: inline-block;
   text-align: center;
   width: 40rem;
   border-style: solid;
+  background-color: white;
 }
 
 .aboutImage
 {
+  height: 100vh;
   background-image: url('../assets/AboutPageIMG.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
