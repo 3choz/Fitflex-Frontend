@@ -1,10 +1,6 @@
 <template>
     <div id="footer">
-      <!-- TODO: Make footer Sticky -->
-      <p>Copyright @2024</p> 
-      <p>FitFlex LLC. No Trademark</p>
-
-
+      <p>©2024 FitFlex LLC. No Trademark</p> 
     </div>
   </template>
   
