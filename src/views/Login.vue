@@ -14,8 +14,7 @@
         </div>
         
         <div>
-          <label for="remember">Remember me</label>
-          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Remember me</label><input type="checkbox" id="remember" name="remember">
         </div>
       <!--
         Removing this while we dont have this implemented. - Shaun

@@ -8,12 +8,13 @@
           <li><a href="#"><router-link to="/about">About</router-link></a> </li>
           <li><a href="#"><router-link to="/programs">Programs</router-link></a> </li>
           <li v-if="isSignedIn"><a href="#"><router-link to="/stats">Statistics</router-link></a> </li>
-          <li v-if="!isSignedIn"><a href="#"><router-link to="/register">Register</router-link></a></li>
+          
           
           <li v-if="isSignedIn"><a href="#"><router-link to="/profile">Profile</router-link></a></li>
-          <!-- Why do we have these? -->
-          <!--<li v-if="!isSignedIn"><a href="#"><router-link to="/login">Login</router-link></a></li>-->
-          <!--<li><a href="#"><router-link to="/testapi">Test Api</router-link></a> </li>-->
+          <!-- Why do we have these? 
+          <li v-if="!isSignedIn"><a href="#"><router-link to="/login">Login</router-link></a></li>
+          <li v-if="!isSignedIn"><a href="#"><router-link to="/register">Register</router-link></a></li>
+          <li><a href="#"><router-link to="/testapi">Test Api</router-link></a> </li>-->
         </ul>
       </nav>
     </div>
@@ -29,7 +30,12 @@
               <li><a href="#" @click="signOut">Sign Out</a></li>
             </ul>
           </li>
-          <li v-else><a href="#"><router-link to="/login">Sign In</router-link></a></li>
+          <li v-else>
+            <a href="#"><router-link to="/login">Sign In</router-link></a>
+          </li>
+          <li v-else>
+            <a href="#"><router-link to="/Register">Register</router-link></a>
+          </li>
         </ul>
       </nav>
     </div>
