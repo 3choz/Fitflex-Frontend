@@ -17,9 +17,12 @@
           <label for="remember">Remember me</label>
           <input type="checkbox" id="remember" name="remember">
         </div>
-      
+      <!--
+        Removing this while we dont have this implemented. - Shaun
         <router-link to="/forgot">I Forgot Username or Password</router-link>
         <br>
+      -->
+        
         <router-link to="/register">Don't Have An Accoun't? Join Us!</router-link>
         <button class="button-link" type="submit">Log In</button>
       </form>
