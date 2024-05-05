@@ -8,7 +8,6 @@
           <li><a href="#"><router-link to="/about">About</router-link></a> </li>
           <li><a href="#"><router-link to="/programs">Programs</router-link></a> </li>
           <li v-if="isSignedIn"><a href="#"><router-link to="/stats">Statistics</router-link></a> </li>
-          <li v-if="!isSignedIn"><a href="#"><router-link to="/">Register</router-link></a></li>
         </ul>
       </nav>
     </div>

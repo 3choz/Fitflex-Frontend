@@ -11,11 +11,3 @@
       at a time.</p>
   </div>
 </template>
-
-<style>
-.aboutText{
-  display: inline-block;
-  text-align: center;
-  width: 30rem;
-}
-</style>

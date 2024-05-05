@@ -133,3 +133,16 @@ body {
   width: 30rem;
   margin-bottom: 80px;
 }
+
+/* About */
+.about 
+{
+  border-style: solid;
+}
+
+.aboutText
+{
+  display: inline-block;
+  text-align: center;
+  width: 30rem;
+}
