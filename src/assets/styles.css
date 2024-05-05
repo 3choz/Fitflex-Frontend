@@ -143,7 +143,10 @@ body {
   border-style: solid;
 }
 
-.aboutText
+.aboutImage
 {
-
+  background-image: url('../assets/AboutPageIMG.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
