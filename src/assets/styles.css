@@ -128,10 +128,7 @@ body {
 }
 
 .update-profile {
-  background-image: url('../assets/AboutPageIMG.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+  background-color: white;
   display: inline-block;
   text-align: center;
   height: 100vh;
