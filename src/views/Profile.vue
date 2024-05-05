@@ -1,6 +1,6 @@
 <template>
   <div class="aboutImage">
-  <div class="update-profile">
+  <div>
     <div v-if="!editUser" class="register update-profile user-auth-input-box">
       <h2>Your Information</h2>
       <div>
