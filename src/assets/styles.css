@@ -128,10 +128,14 @@ body {
 }
 
 .update-profile {
+  background-image: url('../assets/AboutPageIMG.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
   display: inline-block;
   text-align: center;
-  width: 30rem;
-  margin-bottom: 80px;
+  height: 100vh;
+  width: 30vw;
 }
 
 /* About */
