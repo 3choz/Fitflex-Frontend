@@ -1,6 +1,6 @@
 <template>
+  <div class="aboutImage">
   <div class="about">
-    <br><br>
     <h1>FitFlex</h1>
     <p class="aboutText">We believe that achieving fitness goals should be flexible and personalized. Our app is designed to empower
       individuals on their journey to better health by offering a versatile platform that adapts to their unique needs
@@ -10,4 +10,5 @@
       you're joining a dynamic fitness community dedicated to helping you reach your full potential, one flexible step
       at a time.</p>
   </div>
+</div>
 </template>

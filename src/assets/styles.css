@@ -137,12 +137,13 @@ body {
 /* About */
 .about 
 {
-  border-style: solid;
+  
 }
 
 .aboutText
 {
   display: inline-block;
   text-align: center;
-  width: 30rem;
+  width: 40rem;
+  border-style: solid;
 }
