@@ -10,7 +10,7 @@ import { UserModel } from "../../models/UserModel";
  */
 const createExerciseModels = (response) => {
   console.log("Exercise data " + JSON. stringify(response));
-  response.map(
+  return response.map(
     (exercise) =>
       new ExerciseModel(
         exercise.exID,
