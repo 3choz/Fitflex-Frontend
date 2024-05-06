@@ -34,6 +34,8 @@
 import { loginUser, getUser } from "@/utils/api/UserApiUtil";
 import { saveUserToSession } from '@/utils/session/SessionUtils';
 import { mapActions } from 'vuex';
+import { getUserAssignedProgram } from '@/utils/session/ProgramsApiUtil';
+import { ProgramModel } from "@/models/ProgramModel";
 
 export default {
   name: 'Login',
@@ -53,7 +55,9 @@ export default {
         if(loginResponse.getIsSuccessful()){
           const userModel = await getUser(this.username);
           console.log(userModel.toString());
-
+          
+          program = getUserAssignedProgram(userModel)
+          
           saveUserToSession(userModel, this.userSignIn);
         }
       }
