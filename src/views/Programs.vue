@@ -1,23 +1,25 @@
 <template>
     <div class="programs" id="programs">
         <div class="header-image">
-            <div class="program-information">
-                <p>Program Name: {{ program?.getName() || "N/A" }} Programs</p>
-                <p>Program Description: {{ program?.getDescription() || "N/A" }}</p>
-                <p>Program Difficulty: {{ program?.getName() || "N/A" }}</p>
-            </div>
+        </div>
+
+        <div class="program-information">
+            <p>Program: {{ program?.getName() || "N/A" }} Program</p>
+            <p>Description: {{ program?.getDescription() || "N/A" }}</p>
+            <p>Difficulty: {{ program?.getName() || "N/A" }}</p>
         </div>
 
         <div class="programs-container">
-            <!-- <div class="workout" v-for="exercise in exercisesArr" :key="exercise.getId()">
-                exercise
-                <p class="workout-title">{{ exercise.getName() }} Programs</p>
-                <p class="workout-duration">Duration: {{ exercise.getVideoLength() }}</p>
-                <router-link :to="{ name: 'video', query: { url: exercise.getVideoLink() } }"
+            <div class="workout" v-for="(exercise, index) in exercisesArr" :key="exercise[index].getId()">
+                <p class="workout-title">{{ exercise[index].getName() }} Programs</p>
+                <p class="workout-duration">Duration: {{ Math.floor(exercise[index].getVideoLength() / 60) }} mins</p>
+                <router-link :to="{ name: 'video', query: { url: exercise[index].getVideoLink() } }"
                     class="button-link begin-workout">
                     Begin Workout
                 </router-link>
-            </div> -->
+            </div>
+
+            <br> <br>
 
             <router-link to="/change-program" class="button-link change-program">
                 Change Current Program
@@ -54,7 +56,7 @@ export default {
         this.program = await getUserAssignedProgram(this.user);
         console.log("program hshs " + this.program)
         this.exercises = await getUserExercises(this.user);
-        console.log("exercises hshs " + this.exercises)
+        // console.log("exercises hshs " + this.exercises)
 
         // for (let i = 0; i < this.exercises.length; i++) {
         //     this.groupedExercises.push(this.exercises);
@@ -63,6 +65,8 @@ export default {
         for (let i = 0; i < 5; i++) {
             this.exercisesArr.push(this.exercises);
         }
+
+        // console.log("Exercise Arrr "+this.exercisesArr)
     },
 };
 </script>
@@ -132,5 +136,9 @@ export default {
 
 .change-program {
     background-color: #d87c7c;
+}
+
+.program-information {
+    color: black;
 }
 </style>
