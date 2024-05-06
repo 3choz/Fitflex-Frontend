@@ -56,8 +56,10 @@ export default {
           const userModel = await getUser(this.username);
           console.log(userModel.toString());
           
-          program = getUserAssignedProgram(userModel)
+          tempprogram = getUserAssignedProgram(userModel)
+          userModel.setProgramInformation(tempprogram.getName(),tempprogram.getDescription(),tempprogram.getDifficulty())
           
+
           saveUserToSession(userModel, this.userSignIn);
         }
       }
