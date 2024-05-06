@@ -6,14 +6,19 @@
         <CurrentProgress />
         
         <br>
-        <div class="history" v-bind="weightToDelete" v-if="weightToDelete !== null">
+        <div class="history">
           <h2>History of weights:</h2>
-          <form @submit.prevent="deleteWeight">
-            <div v-for="weight in weightsByDate">
-              <input type="radio" :value="weight" v-model="weightToDelete" /> Date: {{ weight.getDate() }} Weight: {{ weight.getWeight() }}
-            </div>
-            <button class="button-link">Delete Selected Weight</button>
-          </form>
+          <div v-bind="weightToDelete" v-if="weightToDelete !== null">
+            <form @submit.prevent="deleteWeight">
+              <div v-for="weight in weightsByDate">
+                <input type="radio" :value="weight" v-model="weightToDelete" /> Date: {{ weight.getDate() }} Weight: {{ weight.getWeight() }}
+              </div>
+              <button class="button-link">Delete Selected Weight</button>
+            </form>
+          </div>
+          <div v-else>
+            <p>No weight data available</p>
+          </div>
           <button class="button-link" @click="promptForWeight">Add Weight</button>
         </div>
     </div>
