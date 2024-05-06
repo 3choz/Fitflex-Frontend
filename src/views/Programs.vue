@@ -16,6 +16,7 @@
                 <router-link :to="{
                     name: 'video', query: {
                         url: exercise[index].getVideoLink(),
+                        id: exercise[index].getId(),
                         programName: program.getName(),
                         videoTitle: exercise[index].getName(),
                         trainer: exercise[index].getTrainerSex(),

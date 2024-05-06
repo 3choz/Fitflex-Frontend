@@ -79,15 +79,24 @@
 </template>
 
 <script>
+import { ExerciseModel } from '@/models/ExerciseModel';
+import { UserExerciseModel } from '@/models/UserExerciseModel';
+import { createUserExercise } from '@/utils/api/UserExerciseApiUtil';
+import { getUserFromSession, isUserLoggedIn } from '@/utils/session/SessionUtils';
+
 export default {
   data() {
     return {
+      user: isUserLoggedIn() ? getUserFromSession() : null,
       showNotification: false
     };
   },
   computed: {
     videoUrl() {
       return this.$route.query.url || "https://www.youtube.com/embed/0A3EgOztptQ";
+    },
+    exerciseId(){
+      return this.$route.query.id || 0;
     },
     programName() {
       return this.$route.query.programName || "Unknown Program";
@@ -106,8 +115,30 @@ export default {
     dismissNotification() {
       this.showNotification = false;
     },
-    addWorkout() {
-      this.showNotification = true;
+    async addWorkout() {
+      const type = prompt("Enter the type of workout you completed.");
+
+      let amount = NaN;
+      while(isNaN(amount)){
+        try{
+          amount = parseFloat(prompt("Enter the amount of reps you completed."));
+        } catch(exception){
+          alert("You need to enter a number for the amount of reps");
+        }
+      }
+
+      const today = new Date();
+      const todayString = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+      const userExercise = new UserExerciseModel(0, this.exerciseId, this.user.getEmail(), todayString, type, amount);
+      console.log(userExercise.toString())
+
+      const creationResponse = await createUserExercise(userExercise);
+      if(creationResponse.getIsSuccessful()){
+        alert("Exercise successfully recorded");
+        this.showNotification = true;
+      } else {
+        alert("Exercise was not successfully recorded");
+      }
     },
     goBack() {
       window.history.back();
