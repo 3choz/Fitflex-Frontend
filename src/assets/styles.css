@@ -158,9 +158,16 @@ body {
 /* Program Page*/
 .program-information
 {
-  color: white;
-  
-  text-align: left;
-  padding-left: 5vw;
-  padding-top: 1vh;
+  border-style: solid;
+  color: black;
+  text-align: center;
+}
+.program-information h2
+{
+
+}
+
+.program-information p
+{
+
 }

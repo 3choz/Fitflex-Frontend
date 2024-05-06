@@ -4,9 +4,9 @@
         </div>
 
         <div class="program-information">
-            <p>Program: {{ program?.getName() || "N/A" }} Program</p>
-            <p>Description: {{ program?.getDescription() || "N/A" }}</p>
-            <p>Difficulty: {{ program?.getName() || "N/A" }}</p>
+            <h1>{{ program?.getName() || "N/A" }} </h1>
+            <p> {{ program?.getDescription() || "N/A" }}</p>
+            <p><strong>Difficulty Level:</strong> {{ program?.getName() || "N/A" }}</p>
         </div>
 
         <div class="programs-container">
@@ -136,9 +136,5 @@ export default {
 
 .change-program {
     background-color: #d87c7c;
-}
-
-.program-information {
-    color: black;
 }
 </style>
