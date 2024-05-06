@@ -2,9 +2,9 @@
   <div class="programs" id="programs">
     <div class="header-image">
       <div class="program-information">
-        <p>Program Name: {{/*user.getProgramName()*/}}</p>
-        <p>Program Description: {{/*user.getProgramDescription()*/}}</p>
-        <p>Program Difficulty: {{/*user.getProgramDifficulty()*/}}</p>
+        <p>Program Name: </p>
+        <p>Program Description: </p>
+        <p>Program Difficulty: </p>
       </div>
     </div>
 
