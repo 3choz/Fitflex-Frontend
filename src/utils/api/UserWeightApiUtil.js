@@ -31,6 +31,7 @@ export const getUserWeight = (userWeightId) => axios
  */
 export const getUserWeights = (user) => axios
 .post(createEndpoint("getuserweights"), {userEmail: user.getEmail()})
+// .then(response => createUserWeightModels(response.data))
 .then(response => createUserWeightModels(response.data))
 .catch(error => {console.error("Error fetching user weights: ", error);});
 

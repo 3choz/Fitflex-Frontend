@@ -5,15 +5,21 @@
         <!-- TODO: Add chart that shows weight progression -->
 
         <!-- TODO: Weight is hard coded at the moment. Pull weight from database -->
-        <p v-if="currentWeight !== null">Current Weight: {{ currentWeight.getWeight() }}</p>
-        <p>Goal Weight: 167lbs</p>       
+        <p>Current Weight: 
+          <div>
+            <p v-if="currentWeight !== null"> {{ currentWeight.getWeight() }}</p>
+            <p v-else> No weight data available</p>
+          </div>
+        </p>     
     </div>
 
 </template>
 
 <script>
+import { UserModel } from '@/models/UserModel';
+import { UserWeightModel } from '@/models/UserWeightModel';
 import { getUserWeights } from '@/utils/api/UserWeightApiUtil';
-import { getUserFromSession, isUserLoggedIn } from '@/utils/session/SessionUtils';
+import { isUserLoggedIn, getUserFromSession } from '@/utils/session/SessionUtils';
 
 
 export default {
@@ -21,12 +27,15 @@ export default {
   data(){
     return {
       user: isUserLoggedIn() ? getUserFromSession() : null,
+      userWeights: [],
       currentWeight: null
     }
   },
   async mounted(){
-    const weights = await getUserWeights(this.user);
-    this.currentWeight =  weights.sort((weight1, weight2) => weight1.getDate() > weight2.getDate())[0]
+    this.userWeights = await getUserWeights(this.user);
+    if(this.userWeights !== undefined){
+      this.currentWeight =  this.userWeights.reverse()[0]
+    }
   }
 }
 </script>
