@@ -5,21 +5,20 @@
       <button @click="dismissNotification">X</button>
     </div>
 
-    <h1>Super Strength</h1>
-    <p>Trainer: Roger “Rock” Lockridge (Male)</p>
+    <h1> {{ programName }} Program</h1>
+    <p class="workout-title">Workout Title: {{ videoTitle }}</p>
+
+
 
     <div class="video-thumbnail">
-      <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/0A3EgOztptQ" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe> -->
 
-      <iframe v-if="videoUrl" width="560" height="315" :src="videoUrl"  frameborder="0"
+      <iframe v-if="videoUrl" width="560" height="315" :src="videoUrl" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
     </div>
 
     <div class="workout-details">
+
       <p class="workout-text"><strong>This eight-week program is designed to help you get stronger throughout the entire
           body.</strong><br>
         <strong>Yes, the big three power lifts are involved, but this isn’t necessarily a power lifting</strong><br>
@@ -90,6 +89,18 @@ export default {
     videoUrl() {
       return this.$route.query.url || "https://www.youtube.com/embed/0A3EgOztptQ";
     },
+    programName() {
+      return this.$route.query.programName || "Unknown Program";
+    },
+    videoTitle() {
+      return this.$route.query.videoTitle || "Unknown Title";
+    },
+    trainer() {
+      return this.$route.query.trainer || "N/A";
+    },
+    videoDescription() {
+      return this.$route.query.description || "No description provided.";
+    }
   },
   methods: {
     dismissNotification() {
@@ -199,6 +210,11 @@ export default {
   margin-bottom: 0.5em;
   position: relative;
   left: -600px;
+}
+.workout-title{
+  display: inline-block;
+  text-align: left;
+  margin-left: 160px;
 }
 
 /* Style for the trainer information */
