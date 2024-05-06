@@ -34,7 +34,7 @@
 import { loginUser, getUser } from "@/utils/api/UserApiUtil";
 import { saveUserToSession } from '@/utils/session/SessionUtils';
 import { mapActions } from 'vuex';
-import { getUserAssignedProgram } from '@/utils/session/ProgramsApiUtil';
+import { getUserAssignedProgram } from '@/utils/api/ProgramsApiUtil';
 import { ProgramModel } from "@/models/ProgramModel";
 
 export default {
