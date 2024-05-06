@@ -88,7 +88,7 @@ export default {
   },
   computed: {
     videoUrl() {
-      return this.$route.query.url || "";
+      return this.$route.query.url || "https://www.youtube.com/embed/0A3EgOztptQ";
     },
   },
   methods: {
