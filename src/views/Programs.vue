@@ -83,7 +83,7 @@ export default {
 .programs-container {
     width: 60%;
     margin: 40px auto;
-    background: #fff;
+
     padding: 20px;
 }
 

@@ -158,7 +158,7 @@ body {
 /* Program Page*/
 .program-information
 {
-  background-color: darkgray;
+  background-color: rgb(255, 128, 43);
   border-radius: 25px;
   border-style: solid;
   color: black;
@@ -171,9 +171,14 @@ body {
 
 .programs
 {
-background-color: grey;
+background-color: rgb(53, 30, 4);
 }
 .workout
 {
 background-color: lightgrey;
+}
+.programs-container 
+{
+  background: #fff;
+  border-radius: 25px;
 }
