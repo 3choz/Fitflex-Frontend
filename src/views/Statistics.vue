@@ -6,9 +6,7 @@
         <CurrentProgress />
         
         <br>
-        <button class="button-link" @click="promptForWeight">Add Weight</button>
-        <br>
-        <div v-bind="weightToDelete" v-if="weightToDelete !== null">
+        <div class="history" v-bind="weightToDelete" v-if="weightToDelete !== null">
           <h2>History of weights:</h2>
           <form @submit.prevent="deleteWeight">
             <div v-for="weight in weightsByDate">
@@ -16,6 +14,7 @@
             </div>
             <button class="button-link">Delete Selected Weight</button>
           </form>
+          <button class="button-link" @click="promptForWeight">Add Weight</button>
         </div>
     </div>
 </template>
@@ -107,5 +106,10 @@ export default {
   display: inline-block;
   text-align: center;
   margin: 50px;
+}
+.history {
+  border: 1px solid black;
+  width: 300px;
+  background-color: aquamarine;
 }
 </style>
