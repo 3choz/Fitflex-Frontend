@@ -4,9 +4,9 @@
         </div>
 
         <div class="program-information">
-            <p>Program: {{ program?.getName() || "N/A" }} Program</p>
-            <p>Description: {{ program?.getDescription() || "N/A" }}</p>
-            <p>Difficulty: {{ program?.getName() || "N/A" }}</p>
+            <h1>{{ program?.getName() || "N/A" }} </h1>
+            <p> {{ program?.getDescription() || "N/A" }}</p>
+            <p><strong>Difficulty Level:</strong> {{ program?.getName() || "N/A" }}</p>
         </div>
 
         <div class="programs-container">
@@ -83,7 +83,7 @@ export default {
 .programs-container {
     width: 60%;
     margin: 40px auto;
-    background: #fff;
+
     padding: 20px;
 }
 
@@ -94,7 +94,6 @@ export default {
 }
 
 .workout {
-    background: #f8f8f8;
     padding: 10px;
     border-radius: 5px;
     position: relative;
@@ -136,9 +135,5 @@ export default {
 
 .change-program {
     background-color: #d87c7c;
-}
-
-.program-information {
-    color: black;
 }
 </style>
