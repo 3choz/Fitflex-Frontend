@@ -1,6 +1,14 @@
 <template>
   <div class="programs" id="programs">
-    <div class="header-image"></div>
+    <div class="header-image">
+      <div class="program-information">
+        <p>Program Name: </p>
+        <p>Program Description: </p>
+        <p>Program Difficulty: </p>
+      </div>
+
+
+    </div>
 
 
     <div class="programs-container">

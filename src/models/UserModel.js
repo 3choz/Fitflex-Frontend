@@ -56,6 +56,10 @@ export class UserModel{
      */
     #sex;
 
+    #userProgramName;
+    #userProgramDescription;
+    #userProgramDifficulty;
+
     /**
      * Creates a new user object
      * @param {string} email
@@ -76,6 +80,9 @@ export class UserModel{
         this.#dateOfBirth = dateOfBirth;
         this.#sex = sex;
         this.#phoneNumber = phoneNumber;
+        this.userProgramName = null
+        this.userProgramDescription = null;
+        this.userProgramDifficulty = null;
     }
 
     /**
@@ -152,6 +159,27 @@ export class UserModel{
      */
     setPhoneNumber = (phoneNumber) => this.#phoneNumber = phoneNumber;
 
+    setProgramInformation = (userProgramName, userProgramDescription, userProgramDifficulty) => function()
+    {
+        this.userProgramName = userProgramName;
+        this.userProgramDescription = userProgramDescription;
+        this.userProgramDifficulty = userProgramDifficulty;
+    }
+
+    /**
+     * @returns {string} The program name of the user
+     */
+    getProgramName = () => this.userProgramName;
+
+     /**
+     * @returns {string} The program description of the user
+     */
+    getProgramDescription = () => this.userProgramDescription;
+
+    /**
+     * @returns {string} The program difficulty of the user
+     */
+    getProgramDifficulty = () => this.userProgramDifficulty;
     /**
      * @returns {string} A string representation of the UserModel object
      */
