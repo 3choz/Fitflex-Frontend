@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="navContainer">
-      <h1>FitFlex</h1>
+      <h1><router-link id="logo-main" to="/">FitFlex</router-link> </h1>
       <nav>
         <ul>
           <li><a href="#"><router-link to="/">Home</router-link> </a></li>
@@ -15,7 +15,8 @@
       <nav>
         <ul>
           <li v-if="isSignedIn" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">
               Hello, {{ name }} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -32,14 +33,14 @@
     </div>
   </header>
 </template>
-  
-  
+
+
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import { removeUserFromSession } from '@/utils/session/SessionUtils';
 import { mapGetters, mapActions } from 'vuex';
-  
+
 export default {
   name: 'NavBar',
   components: {
@@ -64,7 +65,6 @@ export default {
 </script>
 
 <style>
-
 header {
   display: flex;
   justify-content: space-between;
@@ -81,7 +81,8 @@ header {
   overflow: hidden;
 }
 
-header h1, nav ul {
+header h1,
+nav ul {
   display: inline-block;
   vertical-align: middle;
 }
@@ -92,7 +93,8 @@ header h1 {
   font-size: 24px;
 }
 
-.navContainer nav ul, .userContainer nav ul {
+.navContainer nav ul,
+.userContainer nav ul {
   float: right;
   list-style-type: none;
 }
@@ -122,7 +124,8 @@ nav ul li a {
   cursor: pointer;
 }
 
-.dropdown-toggle:hover, .dropdown-toggle:focus {
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
   background-color: #3e8e41;
 }
 
@@ -131,7 +134,7 @@ nav ul li a {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -149,5 +152,8 @@ nav ul li a {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
+#logo-main{
+  text-decoration: none;
+  color: black;
+}
 </style>

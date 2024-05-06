@@ -13,8 +13,15 @@
             <div class="workout" v-for="(exercise, index) in exercisesArr" :key="exercise[index].getId()">
                 <p class="workout-title">{{ exercise[index].getName() }} Programs</p>
                 <p class="workout-duration">Duration: {{ Math.floor(exercise[index].getVideoLength() / 60) }} mins</p>
-                <router-link :to="{ name: 'video', query: { url: exercise[index].getVideoLink() } }"
-                    class="button-link begin-workout">
+                <router-link :to="{
+                    name: 'video', query: {
+                        url: exercise[index].getVideoLink(),
+                        programName: program.getName(),
+                        videoTitle: exercise[index].getName(),
+                        trainer: exercise[index].getTrainerSex(),
+                        description: exercise[index].getDescription()
+                    }
+                }" class="button-link begin-workout">
                     Begin Workout
                 </router-link>
             </div>
