@@ -158,13 +158,15 @@ body {
 /* Program Page*/
 .program-information
 {
+  background-color: darkgray;
+  border-radius: 25px;
   border-style: solid;
   color: black;
   text-align: center;
 }
 .program-information h2
 {
-
+  text-decoration: underline;
 }
 
 .program-information p
