@@ -58,7 +58,7 @@ export default {
           
           /*tempprogram = getUserAssignedProgram(userModel)*/
           /*userModel.setProgramInformation(tempprogram.getName(),tempprogram.getDescription(),tempprogram.getDifficulty())*/
-          userModel.setProgramInformation("test","test","test")
+          /*userModel.setProgramInformation("test","test","test")*/
 
           saveUserToSession(userModel, this.userSignIn);
         }
