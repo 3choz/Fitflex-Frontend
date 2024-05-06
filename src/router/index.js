@@ -7,7 +7,8 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgotUserNamePassword from "../views/ForgotUserNamePassword.vue";
 import Profile from "../views/Profile.vue";
-import ProgramSignup from "../views/ProgramSignup.vue";
+import UpdateWeight from "../views/UpdateWeight.vue";
+import UpdateProgram from "../views/UpdateProgram.vue";
 import TestApi from "@/views/TestApi.vue";
 import UpdatePassword from "@/views/UpdatePassword.vue";
 
@@ -62,9 +63,14 @@ const routes = [
     component: TestApi,
   },
   {
-    path: "/programsignup",
-    name: "programsignup",
-    component: ProgramSignup,
+    path: "/updateweight",
+    name: "updateweight",
+    component: UpdateWeight,
+  },
+  {
+    path: "/change-program",
+    name: "changeprogram",
+    component: UpdateProgram,
   },
   {
     path: "/video",

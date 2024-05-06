@@ -11,7 +11,7 @@
         <router-link v-if="!isSignedIn" to="/register" class="button-link">
           Join Us
         </router-link>
-        <router-link v-else to="/programsignup" class="button-link">
+        <router-link v-else to="/programs" class="button-link">
           Start Your Journey
         </router-link>
       </div>

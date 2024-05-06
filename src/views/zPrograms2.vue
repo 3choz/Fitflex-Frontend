@@ -2,28 +2,26 @@
     <div class="programs" id="programs">
         <div class="header-image">
             <div class="program-information">
-                <p>Program Name: {{ program?.getName() || "N/A" }} Programs</p>
+                <p>Program Name: {{ program?.getName() || "N/A" }} Program</p>
                 <p>Program Description: {{ program?.getDescription() || "N/A" }}</p>
                 <p>Program Difficulty: {{ program?.getName() || "N/A" }}</p>
             </div>
         </div>
 
         <div class="programs-container">
-            <!-- <div class="workout" v-for="exercise in exercisesArr" :key="exercise.getId()">
-                exercise
-                <p class="workout-title">{{ exercise.getName() }} Programs</p>
-                <p class="workout-duration">Duration: {{ exercise.getVideoLength() }}</p>
-                <router-link :to="{ name: 'video', query: { url: exercise.getVideoLink() } }"
-                    class="button-link begin-workout">
-                    Begin Workout
-                </router-link>
-            </div> -->
-
+            <div class="week" v-for="(weekExercises, index) in groupedExercises" :key="index">
+                <h1 class="week-header">Week {{ index + 1 }}</h1>
+                <div class="workout" v-for="exercise in weekExercises" :key="exercise.getId()">
+                    <p class="workout-title">{{ exercise.getName() }} Program</p>
+                    <p class="workout-duration">Duration: {{ exercise.getVideoLength() }}</p>
+                    <router-link :to="{ name: 'video', query: { url: exercise.getVideoLink() } }"
+                        class="button-link begin-workout">
+                        Begin Workout
+                    </router-link>
+                </div>
+            </div>
             <router-link to="/change-program" class="button-link change-program">
                 Change Current Program
-            </router-link>
-            <router-link to="/updateweight" class="button-link update-weight">
-                Update Weight Information
             </router-link>
         </div>
     </div>
@@ -44,24 +42,30 @@ export default {
     data() {
         return {
             program: null,
-            exercisesArr: [],
+            exercises: [],
             groupedExercises: [],
             user: isUserLoggedIn() ? getUserFromSession() : null
         };
     },
     async mounted() {
+        // Replace with your user identification method
+        // const user = this.user;
         console.log("user haha " + this.user)
         this.program = await getUserAssignedProgram(this.user);
-        console.log("program hshs " + this.program)
+        console.log("program hshs " +this.program)
         this.exercises = await getUserExercises(this.user);
-        console.log("exercises hshs " + this.exercises)
+        console.log("exercises hshs " +this.exercises)
 
-        // for (let i = 0; i < this.exercises.length; i++) {
-        //     this.groupedExercises.push(this.exercises);
-        // }
+        // Example grouping logic for weeks (you can modify this according to your logic)
+        //   const weeks = 2; // Number of weeks to show
+        //   const exercisesPerWeek = Math.ceil(this.exercises.length / weeks);
+        //   for (let i = 0; i < weeks; i++) {
+        //     this.groupedExercises.push(this.exercises.slice(i * exercisesPerWeek, (i + 1) * exercisesPerWeek));
+        //   }
 
-        for (let i = 0; i < 5; i++) {
-            this.exercisesArr.push(this.exercises);
+        //   const exercisesPerWeek = Math.ceil(this.exercises.length / weeks);
+        for (let i = 0; i < 2; i++) {
+            this.groupedExercises.push(this.exercises);
         }
     },
 };
