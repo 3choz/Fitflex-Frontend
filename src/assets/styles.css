@@ -169,7 +169,11 @@ body {
   text-decoration: underline;
 }
 
-.program-information p
+.programs
 {
-
+background-color: grey;
+}
+.workout
+{
+background-color: lightgrey;
 }

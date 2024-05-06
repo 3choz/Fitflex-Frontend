@@ -94,7 +94,6 @@ export default {
 }
 
 .workout {
-    background: #f8f8f8;
     padding: 10px;
     border-radius: 5px;
     position: relative;
